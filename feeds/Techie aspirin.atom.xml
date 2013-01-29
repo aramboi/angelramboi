@@ -113,7 +113,7 @@ a server environment.&lt;/p&gt;
 
 
 &lt;p&gt;Make sure the VBoxGuestAdditions.iso is mounted.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="vbox-image" src="http://www.altshiftkill.com/wp-content/uploads/2011/01/vbox1.jpg" title="VirtualBox Additions" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="vbox-image" src="http://limpangel.github.com/images/2011/vbox.jpg" title="VirtualBox Additions" /&gt;&lt;/p&gt;
 &lt;p&gt;Reboot system. Then do:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;% sudo mkdir /media/cdrom&lt;/span&gt;
 &lt;span class="c"&gt;% sudo mount /dev/sr0 /media/cdrom&lt;/span&gt;
@@ -156,7 +156,7 @@ line (without the &lt;em&gt;sudo&lt;/em&gt;) to the end of &lt;em&gt;/etc/init.d
 &lt;/pre&gt;&lt;/div&gt;</summary><category term="ubuntu"></category><category term="virtualbox"></category></entry><entry><title>Youtube not working in Firefox 3.6</title><link href="http://www.altshiftkill.com/2010/11/youtube-not-working-in-firefox-36.html" rel="alternate"></link><updated>2010-11-08T16:54:00+02:00</updated><author><name>Angel Ramboi</name></author><id>tag:www.altshiftkill.com,2010-11-08:2010/11/youtube-not-working-in-firefox-36.html</id><summary type="html">&lt;p&gt;For the past couple of days YouTube did not work properly when accessed
 via Firefox 3.6 (at least on my home PC).&lt;/p&gt;
 &lt;p&gt;Here's how the front page looked:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="youtube" src="http://www.altshiftkill.com/wp-content/uploads/2011/01/youtube_no_thumbs1.jpg" title="YouTube with no thumbs" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="youtube" src="http://limpangel.github.com/images/2011/youtube_no_thumbs.jpg" title="YouTube with no thumbs" /&gt;&lt;/p&gt;
 &lt;p&gt;I wasn't able to access any videos or my account. Also Firebug showed
 about 10 JavaScript errors. But it worked OK in Google Chrome and
 Internet Explorer.&lt;/p&gt;
@@ -200,7 +200,7 @@ Target field. It should look like this:&lt;/p&gt;
 &lt;p&gt;Save and open Firefox with that shortcut. The profile manager windows
 should appear (image bellow), click on Create Profile and create the
 "beta" profile.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Firefox Profile Manager" src="http://www.altshiftkill.com/wp-content/uploads/2011/01/firefox-profilemanager.jpg" title="Firefox profile manager" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Firefox Profile Manager" src="http://limpangel.github.com/images/2011/firefox-profilemanager.jpg" title="Firefox profile manager" /&gt;&lt;/p&gt;
 &lt;p&gt;To make the shortcut access the profile directly without the profile
 manager window you have to edit once more the Target of the shortcut
 like so:&lt;/p&gt;
