@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="¬_¬, They mostly come at night ... mostly!">
+
+        <link rel="alternate"  href="http://localhost:8000/feeds/all.atom.xml" type="application/atom+xml" title="¬_¬ Full Atom Feed"/>
+
+        <title>Installing VirtualBox Guest Additions in Ubuntu Server // ¬_¬ // They mostly come at night ... mostly!</title>
+
+    <link href="images/alt-favicon.png" rel="icon">
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.3.0/pure-min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://localhost:8000/theme/css/pure.css">
+    <link rel="stylesheet" href="http://localhost:8000/theme/css/pygments.css">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fitvids/1.0.1/jquery.fitvids.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".content").fitVids();
+        });
+    </script>
+</head>
+
+<body>
+    <div class="pure-g-r" id="layout">
+        <div class="sidebar pure-u">
+            <div class="cover-img" style="background-image: url('images/alt-bg.png')">
+                <div class="cover-body">
+                    <header class="header">
+                        <hgroup>
+                            <img class="avatar" src="images/me.jpg">
+                            <h1 class="brand-main"><a href="http://localhost:8000">¬_¬</a></h1>
+                            <p class="tagline">They mostly come at night ... mostly!</p>
+                                <p class="links"><a href="http://localhost:8000/archives.html">Archive</a></p>
+                                <p class="links"><a href="http://localhost:8000/about.html">About</a></p>
+                                <p class="social">
+                                    <a href="https://twitter.com/angelramboi">
+                                        <i class="fa fa-twitter fa-3x"></i>
+                                    </a>
+                                    <a href="https://github.com/aramboi">
+                                        <i class="fa fa-github fa-3x"></i>
+                                    </a>
+                                    <a href="https://bitbucket.org/aramboi">
+                                        <i class="fa fa-bitbucket fa-3x"></i>
+                                    </a>
+                                    <a href="http://altshiftkill.com/feeds/all.atom.xml">
+                                        <i class="fa fa-rss fa-3x"></i>
+                                    </a>
+                                </p>
+                        </hgroup>
+                    </header>
+                </div>
+            </div>
+        </div>
+    <div class="pure-u">
+        <div class="content">
+            <section class="post">
+                <header class="post-header">
+                    <h1>Installing VirtualBox Guest Additions in Ubuntu Server</h1>
+                        <p class="post-meta">
+                            // under                                 <a class="post-category" href="http://localhost:8000/tag/ubuntu.html">ubuntu</a>
+                                <a class="post-category" href="http://localhost:8000/tag/virtualbox.html">virtualbox</a>
+                        </p>
+                </header>
+            </section>
+            <p>If you need to use features like "Shared folders" in Virtualbox guests
+you have to install the Guest Additions. With Ubuntu desktop or Windows
+this is a breeze, but I couldn't find a unified guide on how to do it in
+a server environment.</p>
+<p>First you need to install these:</p>
+<div class="highlight"><pre><span class="c">% sudo apt-get install dkms</span>
+<span class="c">% sudo apt-get install build-essential linux-headers-`uname -r`</span>
+</pre></div>
+
+
+<p>Make sure the VBoxGuestAdditions.iso is mounted.</p>
+<p><img alt="vbox-image" src="/images/2011/vbox.jpg" title="VirtualBox Additions" /></p>
+<p>Reboot system. Then do:</p>
+<div class="highlight"><pre><span class="c">% sudo mkdir /media/cdrom</span>
+<span class="c">% sudo mount /dev/sr0 /media/cdrom</span>
+<span class="n">mount</span><span class="p">:</span> <span class="n">block</span> <span class="n">device</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sr0</span> <span class="n">is</span> <span class="n">write</span><span class="o">-</span><span class="n">protected</span><span class="p">,</span> <span class="n">mounting</span> <span class="n">read</span><span class="o">-</span><span class="n">only</span>
+<span class="c">% cd /media/cdrom</span>
+<span class="c">% sudo ./VBoxLinuxAdditions-x86.run</span>
+</pre></div>
+
+
+<p>If you have 64bit Ubuntu you should run the <em>VBoxLinuxAdditions-amd64.run</em> file.</p>
+<p><strong>UPDATE:</strong> VirtualBox 4.0 merged the two files in one,
+<em>VBoxLinuxAdditions.run</em>. Also the above image is not accurate for this
+version, use 'Install Guest Additions...' (Host+D) to load the virtual
+drive.</p>
+<p>You should see something like this:</p>
+<div class="highlight"><pre>Verifying archive integrity... All good.
+Uncompressing VirtualBox 3.2.12 Guest Additions for Linux........
+VirtualBox Guest Additions installer
+Removing installed version 3.2.10 of VirtualBox Guest Additions...
+Uninstalling old VirtualBox DKMS kernel modules ...done.
+Building the VirtualBox Guest Additions kernel modules
+Doing non-kernel setup of the Guest Additions ...done.
+You should restart your guest to make sure the new modules are actually used
+Installing the Window System drivers ...fail!
+(Could not find the X.Org or XFree86 Window System.)
+</pre></div>
+
+
+<p>Don't worry about the windows system drivers error as you don't use them
+on Ubuntu server edition.</p>
+<p>After reboot you will be able to mount your shared folders like so:</p>
+<div class="highlight"><pre><span class="c">% sudo mount -t vboxsf shared_folder_name /path/to/folder</span>
+</pre></div>
+
+
+<p>To mount the shared folders automatically every time you boot, add  this
+line (without the <em>sudo</em>) to the end of <em>/etc/init.d/rc.local</em>.</p>
+<p>To uninstall the guest additions use:</p>
+<div class="highlight"><pre><span class="c">% sudo /opt/VBoxGuestAdditions*/uninstall.sh</span>
+</pre></div>
+            <a href="#" class="go-top">Go Top</a>
+<footer class="footer">
+    <p>&copy; Angel Ramboi &ndash;
+        Built with <a href="https://github.com/PurePelicanTheme/pure-single">Pure Theme</a>
+        for <a href="http://blog.getpelican.com/">Pelican</a>
+    </p>
+</footer>        </div>
+    </div>
+    </div>
+    <script>
+        var $top = $('.go-top');
+
+        // Show or hide the sticky footer button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                $top.fadeIn(200);
+            } else {
+                $top.fadeOut(200);
+            }
+        });
+
+        // Animate the scroll to top
+        $top.click(function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop: 0}, 300);
+        })
+
+        // Makes sure that the href="#" attached to the <a> elements
+        // don't scroll you back up the page.
+        $('body').on('click', 'a[href="#"]', function(event) {
+            event.preventDefault();
+        });
+    </script>
+
+</body>
+</html>

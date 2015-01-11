@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="¬_¬, They mostly come at night ... mostly!">
+
+        <link rel="alternate"  href="http://localhost:8000/feeds/all.atom.xml" type="application/atom+xml" title="¬_¬ Full Atom Feed"/>
+
+        <title>all posts // ¬_¬ // They mostly come at night ... mostly!</title>
+
+    <link href="images/alt-favicon.png" rel="icon">
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.3.0/pure-min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://localhost:8000/theme/css/pure.css">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="pure-g-r" id="layout">
+        <div class="sidebar pure-u">
+            <div class="cover-img" style="background-image: url('images/alt-bg.png')">
+                <div class="cover-body">
+                    <header class="header">
+                        <hgroup>
+                            <img class="avatar" src="images/me.jpg">
+                            <h1 class="brand-main"><a href="http://localhost:8000">¬_¬</a></h1>
+                            <p class="tagline">They mostly come at night ... mostly!</p>
+                                <p class="links"><a href="http://localhost:8000/archives.html">Archive</a></p>
+                                <p class="links"><a href="http://localhost:8000/about.html">About</a></p>
+                                <p class="social">
+                                    <a href="https://twitter.com/angelramboi">
+                                        <i class="fa fa-twitter fa-3x"></i>
+                                    </a>
+                                    <a href="https://github.com/aramboi">
+                                        <i class="fa fa-github fa-3x"></i>
+                                    </a>
+                                    <a href="https://bitbucket.org/aramboi">
+                                        <i class="fa fa-bitbucket fa-3x"></i>
+                                    </a>
+                                    <a href="http://altshiftkill.com/feeds/all.atom.xml">
+                                        <i class="fa fa-rss fa-3x"></i>
+                                    </a>
+                                </p>
+                        </hgroup>
+                    </header>
+                </div>
+            </div>
+        </div>
+    <div class="pure-u-1">
+        <div class="content">
+            <h1 class="content-subhead">All posts</h1>
+                <div class="archive-item">
+                    <h5 class="archive-date">2011</h5>
+                    <h4 class="archive-date">15 June</h4>
+                    <div class="archive-post"><a href="gnome3-on-ubuntu-1104-natty-impressions/">Gnome3 on Ubuntu 11.04 Natty (impressions)</a></div>
+                </div>
+                <div class="archive-item">
+                    <h5 class="archive-date">2011</h5>
+                    <h4 class="archive-date">09 June</h4>
+                    <div class="archive-post"><a href="getting-the-latest-firefox-release-for-64bit-linux/">Getting the latest Firefox release for 64bit Linux</a></div>
+                </div>
+                <div class="archive-item">
+                    <h5 class="archive-date">2011</h5>
+                    <h4 class="archive-date">23 January</h4>
+                    <div class="archive-post"><a href="keyboard-shortcuts-for-pidgin-menu-items/">Keyboard shortcuts for Pidgin menu items</a></div>
+                </div>
+                <div class="archive-item">
+                    <h5 class="archive-date">2011</h5>
+                    <h4 class="archive-date">23 January</h4>
+                    <div class="archive-post"><a href="installing-firefox-4-beta-with-adobe-flash-player-on-ubuntu-64bit/">Installing Firefox 4 beta with Adobe Flash Player on Ubuntu 64bit</a></div>
+                </div>
+                <div class="archive-item">
+                    <h5 class="archive-date">2011</h5>
+                    <h4 class="archive-date">06 January</h4>
+                    <div class="archive-post"><a href="installing-virtualbox-guest-additions-in-ubuntu-server/">Installing VirtualBox Guest Additions in Ubuntu Server</a></div>
+                </div>
+                <div class="archive-item">
+                    <h5 class="archive-date">2010</h5>
+                    <h4 class="archive-date">08 November</h4>
+                    <div class="archive-post"><a href="youtube-not-working-in-firefox-36/">Youtube not working in Firefox 3.6</a></div>
+                </div>
+                <div class="archive-item">
+                    <h5 class="archive-date">2010</h5>
+                    <h4 class="archive-date">08 November</h4>
+                    <div class="archive-post"><a href="different-profiles-for-firefox-36-and-4-beta-on-windows/">Different profiles for Firefox 3.6 and 4 beta on Windows</a></div>
+                </div>
+                <div class="archive-item">
+                    <h5 class="archive-date">2010</h5>
+                    <h4 class="archive-date">08 November</h4>
+                    <div class="archive-post"><a href="hello-world/">Hello world!</a></div>
+                </div>
+<footer class="footer">
+    <p>&copy; Angel Ramboi &ndash;
+        Built with <a href="https://github.com/PurePelicanTheme/pure-single">Pure Theme</a>
+        for <a href="http://blog.getpelican.com/">Pelican</a>
+    </p>
+</footer>        </div>
+    </div>
+    </div>
+    <script>
+        var $top = $('.go-top');
+
+        // Show or hide the sticky footer button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                $top.fadeIn(200);
+            } else {
+                $top.fadeOut(200);
+            }
+        });
+
+        // Animate the scroll to top
+        $top.click(function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop: 0}, 300);
+        })
+
+        // Makes sure that the href="#" attached to the <a> elements
+        // don't scroll you back up the page.
+        $('body').on('click', 'a[href="#"]', function(event) {
+            event.preventDefault();
+        });
+    </script>
+
+</body>
+</html>
