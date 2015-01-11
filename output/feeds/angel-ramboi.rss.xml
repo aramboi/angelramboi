@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>¬_¬</title><link>http://localhost:8000/</link><description></description><atom:link href="http://localhost:8000/feeds/angel-ramboi.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 15 Jun 2011 18:31:00 +0100</lastBuildDate><item><title>Gnome3 on Ubuntu 11.04 Natty (impressions)</title><link>http://localhost:8000/gnome3-on-ubuntu-1104-natty-impressions/</link><description>&lt;p&gt;I decided to take a leap of faith and install Gnome3 and gnome-shell on
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>¬_¬</title><link>http://altshiftkill.com/</link><description></description><atom:link href="http://localhost:8000/feeds/angel-ramboi.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 15 Jun 2011 18:31:00 +0100</lastBuildDate><item><title>Gnome3 on Ubuntu 11.04 Natty (impressions)</title><link>http://altshiftkill.com/gnome3-on-ubuntu-1104-natty-impressions/</link><description>&lt;p&gt;I decided to take a leap of faith and install Gnome3 and gnome-shell on
 my Ubuntu box.&lt;/p&gt;
 &lt;p&gt;First the installation:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;% sudo add-apt-repository ppa:gnome3-team/gnome3&lt;/span&gt;
@@ -59,14 +59,14 @@ list):&lt;/p&gt;
     Lots Of New Features&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www.webupd8.org/2011/06/move-icons-from-message-tray-to-top.html" title="Move Icons From Message Tray To The Top GNOME Shell Panel (Top Bar) Using IconManager Extension"&gt;Move Icons From Message Tray To The Top GNOME Shell Panel (Top Bar)
     Using IconManager Extension&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Angel Ramboi</dc:creator><pubDate>Wed, 15 Jun 2011 18:31:00 +0100</pubDate><guid>tag:localhost:8000,2011-06-15:gnome3-on-ubuntu-1104-natty-impressions/</guid><category>gnome3</category><category>ubuntu</category></item><item><title>Getting the latest Firefox release for 64bit Linux</title><link>http://localhost:8000/getting-the-latest-firefox-release-for-64bit-linux/</link><description>&lt;p&gt;On the usual channels (like
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Angel Ramboi</dc:creator><pubDate>Wed, 15 Jun 2011 18:31:00 +0100</pubDate><guid>tag:altshiftkill.com,2011-06-15:gnome3-on-ubuntu-1104-natty-impressions/</guid><category>gnome3</category><category>ubuntu</category></item><item><title>Getting the latest Firefox release for 64bit Linux</title><link>http://altshiftkill.com/getting-the-latest-firefox-release-for-64bit-linux/</link><description>&lt;p&gt;On the usual channels (like
 &lt;a href="http://www.mozilla.com/en-US/firefox/channel/"&gt;http://www.mozilla.com/en-US/firefox/channel/&lt;/a&gt; ) you can only
 download the 32bit version of the latest Firefox release.&lt;/p&gt;
 &lt;p&gt;But I stumbled over a public Mozilla FTP where they hold all releases,
 including the 64bit one.&lt;/p&gt;
 &lt;p&gt;Link: &lt;a href="ftp://ftp.mozilla.org/pub/mozilla.org/firefox/releases/"&gt;ftp://ftp.mozilla.org/pub/mozilla.org/firefox/releases/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This way all the installed plug-ins on your 64bit *nix system will work
-out of the box (including Adobe Flash).&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Angel Ramboi</dc:creator><pubDate>Thu, 09 Jun 2011 12:24:00 +0100</pubDate><guid>tag:localhost:8000,2011-06-09:getting-the-latest-firefox-release-for-64bit-linux/</guid><category>firefox beta</category><category>linux</category></item><item><title>Keyboard shortcuts for Pidgin menu items</title><link>http://localhost:8000/keyboard-shortcuts-for-pidgin-menu-items/</link><description>&lt;p&gt;If you migrated from Yahoo Messenger! to Pidgin you probably found out
+out of the box (including Adobe Flash).&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Angel Ramboi</dc:creator><pubDate>Thu, 09 Jun 2011 12:24:00 +0100</pubDate><guid>tag:altshiftkill.com,2011-06-09:getting-the-latest-firefox-release-for-64bit-linux/</guid><category>firefox beta</category><category>linux</category></item><item><title>Keyboard shortcuts for Pidgin menu items</title><link>http://altshiftkill.com/keyboard-shortcuts-for-pidgin-menu-items/</link><description>&lt;p&gt;If you migrated from Yahoo Messenger! to Pidgin you probably found out
 that some handy keyboard shortcuts are missing and no alternatives are
 defined by default.&lt;/p&gt;
 &lt;p&gt;For example, I used to &lt;em&gt;Ctrl+h&lt;/em&gt; to hide/show my offline buddies, but I
@@ -81,7 +81,7 @@ and edited this part:&lt;/p&gt;
 
 
 &lt;p&gt;Restarted Pidgin and it worked. There's a bunch of unused actions in
-that file so feel free to experiment. :)&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Angel Ramboi</dc:creator><pubDate>Sun, 23 Jan 2011 11:30:00 +0000</pubDate><guid>tag:localhost:8000,2011-01-23:keyboard-shortcuts-for-pidgin-menu-items/</guid><category>pidgin</category><category>windows</category></item><item><title>Installing Firefox 4 beta with Adobe Flash Player on Ubuntu 64bit</title><link>http://localhost:8000/installing-firefox-4-beta-with-adobe-flash-player-on-ubuntu-64bit/</link><description>&lt;p&gt;You can get the latest Firefox build from the &lt;a href="https://launchpad.net/~ubuntu-mozilla-daily/+archive/ppa" title="Mozilla PPA"&gt;launchpad ppa repositories&lt;/a&gt;,
+that file so feel free to experiment. :)&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Angel Ramboi</dc:creator><pubDate>Sun, 23 Jan 2011 11:30:00 +0000</pubDate><guid>tag:altshiftkill.com,2011-01-23:keyboard-shortcuts-for-pidgin-menu-items/</guid><category>pidgin</category><category>windows</category></item><item><title>Installing Firefox 4 beta with Adobe Flash Player on Ubuntu 64bit</title><link>http://altshiftkill.com/installing-firefox-4-beta-with-adobe-flash-player-on-ubuntu-64bit/</link><description>&lt;p&gt;You can get the latest Firefox build from the &lt;a href="https://launchpad.net/~ubuntu-mozilla-daily/+archive/ppa" title="Mozilla PPA"&gt;launchpad ppa repositories&lt;/a&gt;,
 but I found that the periodical beta release on Mozilla's website tends to be
 more stable and usable than the daily builds.&lt;/p&gt;
 &lt;p&gt;Unfortunately the downloadable build is only 32bit, thus not compatible
@@ -102,7 +102,7 @@ as it is called. Download it and untar it to the "plugins" folder in
 your Firefox installation.&lt;/p&gt;
 &lt;p&gt;And there you have it, Adobe Flash Player in Firefox 4 beta. (Please
 keep in mind that both Firefox and Flash need to be updated manually if
-installed this way)&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Angel Ramboi</dc:creator><pubDate>Sun, 23 Jan 2011 11:08:00 +0000</pubDate><guid>tag:localhost:8000,2011-01-23:installing-firefox-4-beta-with-adobe-flash-player-on-ubuntu-64bit/</guid><category>adobe</category><category>firefox</category><category>flash</category><category>ubuntu</category></item><item><title>Installing VirtualBox Guest Additions in Ubuntu Server</title><link>http://localhost:8000/installing-virtualbox-guest-additions-in-ubuntu-server/</link><description>&lt;p&gt;If you need to use features like "Shared folders" in Virtualbox guests
+installed this way)&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Angel Ramboi</dc:creator><pubDate>Sun, 23 Jan 2011 11:08:00 +0000</pubDate><guid>tag:altshiftkill.com,2011-01-23:installing-firefox-4-beta-with-adobe-flash-player-on-ubuntu-64bit/</guid><category>adobe</category><category>firefox</category><category>flash</category><category>ubuntu</category></item><item><title>Installing VirtualBox Guest Additions in Ubuntu Server</title><link>http://altshiftkill.com/installing-virtualbox-guest-additions-in-ubuntu-server/</link><description>&lt;p&gt;If you need to use features like "Shared folders" in Virtualbox guests
 you have to install the Guest Additions. With Ubuntu desktop or Windows
 this is a breeze, but I couldn't find a unified guide on how to do it in
 a server environment.&lt;/p&gt;
@@ -153,7 +153,7 @@ on Ubuntu server edition.&lt;/p&gt;
 line (without the &lt;em&gt;sudo&lt;/em&gt;) to the end of &lt;em&gt;/etc/init.d/rc.local&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;To uninstall the guest additions use:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;% sudo /opt/VBoxGuestAdditions*/uninstall.sh&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Angel Ramboi</dc:creator><pubDate>Thu, 06 Jan 2011 20:47:00 +0000</pubDate><guid>tag:localhost:8000,2011-01-06:installing-virtualbox-guest-additions-in-ubuntu-server/</guid><category>ubuntu</category><category>virtualbox</category></item><item><title>Youtube not working in Firefox 3.6</title><link>http://localhost:8000/youtube-not-working-in-firefox-36/</link><description>&lt;p&gt;For the past couple of days YouTube did not work properly when accessed
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Angel Ramboi</dc:creator><pubDate>Thu, 06 Jan 2011 20:47:00 +0000</pubDate><guid>tag:altshiftkill.com,2011-01-06:installing-virtualbox-guest-additions-in-ubuntu-server/</guid><category>ubuntu</category><category>virtualbox</category></item><item><title>Youtube not working in Firefox 3.6</title><link>http://altshiftkill.com/youtube-not-working-in-firefox-36/</link><description>&lt;p&gt;For the past couple of days YouTube did not work properly when accessed
 via Firefox 3.6 (at least on my home PC).&lt;/p&gt;
 &lt;p&gt;Here's how the front page looked:&lt;/p&gt;
 &lt;p&gt;&lt;img alt="youtube" src="/images/2011/youtube_no_thumbs.jpg" title="YouTube with no thumbs" /&gt;&lt;/p&gt;
@@ -170,7 +170,7 @@ the &lt;strong&gt;dom.storage.enabled&lt;/strong&gt; property to &lt;strong&gt;t
 &lt;p&gt;The weird part is that YouTube works in Internet Explorer 8 even with
 DOM Storage disabled.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;UPDATE&lt;/strong&gt;: The new version of Twitter doesn't work either if DOM
-Storage is disabled.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Angel Ramboi</dc:creator><pubDate>Mon, 08 Nov 2010 16:54:00 +0000</pubDate><guid>tag:localhost:8000,2010-11-08:youtube-not-working-in-firefox-36/</guid><category>firefox</category><category>youtube</category><category>dom</category><category>storage</category></item><item><title>Different profiles for Firefox 3.6 and 4 beta on Windows</title><link>http://localhost:8000/different-profiles-for-firefox-36-and-4-beta-on-windows/</link><description>&lt;p&gt;When installing Mozilla Minefield (Firefox daily builds) on Ubuntu, it
+Storage is disabled.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Angel Ramboi</dc:creator><pubDate>Mon, 08 Nov 2010 16:54:00 +0000</pubDate><guid>tag:altshiftkill.com,2010-11-08:youtube-not-working-in-firefox-36/</guid><category>firefox</category><category>youtube</category><category>dom</category><category>storage</category></item><item><title>Different profiles for Firefox 3.6 and 4 beta on Windows</title><link>http://altshiftkill.com/different-profiles-for-firefox-36-and-4-beta-on-windows/</link><description>&lt;p&gt;When installing Mozilla Minefield (Firefox daily builds) on Ubuntu, it
 automatically creates a new profile and copies your current profile
 there. But on Windows this thing doesn't happen.&lt;/p&gt;
 &lt;p&gt;When installing Firefox 4b6 on Windows 7 the same profile as the regular
@@ -215,8 +215,8 @@ like so:&lt;/p&gt;
 
 &lt;p&gt;That's it. Happy testing.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;UPDATE&lt;/strong&gt;: Another way to solve this is to install the &lt;a href="http://portableapps.com/apps/internet/firefox_portable/test" title="Firefox portable"&gt;portable
-version of Firefox beta&lt;/a&gt;.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Angel Ramboi</dc:creator><pubDate>Mon, 08 Nov 2010 13:14:00 +0000</pubDate><guid>tag:localhost:8000,2010-11-08:different-profiles-for-firefox-36-and-4-beta-on-windows/</guid><category>firefox</category><category>profiles</category></item><item><title>Hello world!</title><link>http://localhost:8000/hello-world/</link><description>&lt;p&gt;I thought about starting this blog for a while now, just didn’t have the
+version of Firefox beta&lt;/a&gt;.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Angel Ramboi</dc:creator><pubDate>Mon, 08 Nov 2010 13:14:00 +0000</pubDate><guid>tag:altshiftkill.com,2010-11-08:different-profiles-for-firefox-36-and-4-beta-on-windows/</guid><category>firefox</category><category>profiles</category></item><item><title>Hello world!</title><link>http://altshiftkill.com/hello-world/</link><description>&lt;p&gt;I thought about starting this blog for a while now, just didn’t have the
 time and/or inspiration to actually do it.&lt;/p&gt;
 &lt;p&gt;Anyway, this is going to be my place to post news about projects I’m
 working on, tech rants and other stuff. I just hope it will not be
-boring.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Angel Ramboi</dc:creator><pubDate>Mon, 08 Nov 2010 10:45:00 +0000</pubDate><guid>tag:localhost:8000,2010-11-08:hello-world/</guid></item></channel></rss>
+boring.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Angel Ramboi</dc:creator><pubDate>Mon, 08 Nov 2010 10:45:00 +0000</pubDate><guid>tag:altshiftkill.com,2010-11-08:hello-world/</guid></item></channel></rss>
