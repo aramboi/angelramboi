@@ -19,15 +19,13 @@ I also disabled the `fastboot` feature provided since Windows 8. What this does 
 
 Make sure you have a wired network connection before starting this, otherwise you won't be able to get the updates for the video and wi-fi cards.
 
-When you get to the install menu you have to add the `nomodeset` option to the boot, either by pressing `F6` or by editing the boot sequence by hand and adding `nomodeset` just after `splash`.
-
-![Ubuntu install menu][5]
+When you get to the install menu you need to change the boot sequence a bit. With `Install Ubuntu` selected, press `e` and add `nomodeset` just after `splash`. Then `Ctrl+x` or `F10` to continue booting. You should be able to install the system as you normally would.
 
 ### Video drivers
 
 I was unable to boot properly into Ubuntu after install and it was relatively hard to pinpoint the issue because the error messages would appear only briefly on screen. After some research I concluded that the video card was the culprit and had to install the proprietary drivers to get things working.
 
-To do that, boot into recovery mode (should be the third option in the boot menu). You will be presented with several options as seen below:
+To do that boot into recovery mode by selecting `Advanced options for Ubuntu` and then the second option in the boot menu, the one that has appended `recovery menu` to the latest kernel version string. You will be presented with several options as seen below:
 
 ![Ubuntu recovery menu][3]
 
