@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = u'Angel Ramboi'
 SITENAME = u'Angel Ramboi'
-SITEURL = 'http://localhost:8000'
+SITEURL = 'http://localhost:8080'
 FEED_DOMAIN = SITEURL
 TAGLINE = u'coder, gamer, geek'
 
@@ -33,3 +33,5 @@ SOCIAL = (
 DISPLAY_PAGES_ON_MENU = False
 
 RELATIVE_URLS = False
+
+PLUGINS = ['extended_sitemap']
