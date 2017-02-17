@@ -1,11 +1,11 @@
-Title: Install Ubuntu side by side with Windows 10 on an Alienware 13 laptop
+Title: Install Ubuntu side by side with Windows 10 on an Alienware 13 R2 laptop
 Date: 2015-11-10
 Category: linux
 Slug: install-ubuntu-on-alienware-13
 Tags: ubuntu, alienware
-Summary: The Alienware 13 is an awesome gaming rig, so of course the Linux the support is ... meh!
+Summary: The Alienware 13 R2 is an awesome gaming rig, so of course the Linux the support is ... meh!
 
-The Alienware 13 is probably the best compact gaming rig out there, so as you'd expect the Linux the support is underwhelming, to say the least. This setup assumes we want to keep the Windows 10 install and have a dual-boot system.
+The Alienware 13 R2 is probably the best compact gaming rig out there, so as you'd expect the Linux the support is underwhelming, to say the least. This setup assumes we want to keep the Windows 10 install and have a dual-boot system.
 
 ### Windows preparations
 
@@ -75,7 +75,7 @@ The good news is that customizations done in Windows to any of the LEDs carries 
 
 ### Conclusion
 
-Alienware 13 is a great and powerful gaming laptop, and with a bit of work it behaves really well under Linux also. I played the native Steam version of "Bioshock Infinite" on high settings with very good frame rate under Ubuntu 15.10, so I am very happy with how things turned up.
+Alienware 13 R2 is a great and powerful gaming laptop, and with a bit of work it behaves really well under Linux also. I played the native Steam version of "Bioshock Infinite" on high settings with very good frame rate under Ubuntu 15.10, so I am very happy with how things turned up.
 
 PS: For this blog post I wanted to do also a recording with "Bioshock Infinite" running native on Ubuntu, but the frame rates while recording were horrendous and lowering the settings would not have done the game justice.
 
