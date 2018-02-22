@@ -37,7 +37,7 @@
                             <p class="tagline">coder, gamer, geek</p>
                                 <p class="links"><a href="/archives.html">Archive</a></p>
                                 <p class="social">
-                                    <a href="https://twitter.com/AngelRamboi">
+                                    <a href="https://twitter.com/angelramboi">
                                         <i class="fa fa-twitter fa-3x"></i>
                                     </a>
                                     <a href="https://github.com/aramboi">
@@ -58,6 +58,7 @@
                 <header class="post-header">
                     <h1>Install Ubuntu side by side with Windows 10 on an Alienware 13 R2 laptop</h1>
                         <p class="post-meta">
+                            Tue 10 November 2015
                             // under                                 <a class="post-category" href="https://altshiftkill.com/tag/ubuntu.html">ubuntu</a>
                                 <a class="post-category" href="https://altshiftkill.com/tag/alienware.html">alienware</a>
                         </p>
@@ -74,7 +75,7 @@
 <h3>Video drivers</h3>
 <p>I was unable to boot properly into Ubuntu after install and it was relatively hard to pinpoint the issue because the error messages would appear only briefly on screen. After some research I concluded that the video card was the culprit and had to install the proprietary drivers to get things working.</p>
 <p>To do that boot into recovery mode by selecting <code>Advanced options for Ubuntu</code> and then the second option in the boot menu, the one that has appended <code>recovery menu</code> to the latest kernel version string. You will be presented with several options as seen below:</p>
-<p><img alt="Ubuntu recovery menu" src="/images/2015/ubuntu-recovery-mode-menu.png" title="Ubuntu recovery menu" /></p>
+<p><img alt="Ubuntu recovery menu" src="/images/2015/ubuntu-recovery-mode-menu.png" title="Ubuntu recovery menu"></p>
 <p>Choose the <code>Enable networking</code> option and press <code>OK</code>. After that is finished choose the option to <code>Drop into root shell prompt</code>. In the shell do:</p>
 <div class="highlight"><pre><span></span>$ ubuntu-drivers <span class="nv">devices</span>
 <span class="o">==</span> /sys/devices/pci0000:00/0000:00:1c.4/0000:03:00.0 <span class="o">==</span>
@@ -100,7 +101,7 @@ $ sudo reboot
 
 
 <h3>Wi-fi</h3>
-<h6><strong>UPDATE:</strong> This should work with Ubuntu 15.10 out of the box after install and system updates. They seem to have added the patch around 6th of December 2015.</h6>
+<h5><strong>UPDATE:</strong> This should work with Ubuntu 15.10 out of the box after install and system updates. They seem to have added the patch around 6th of December 2015.</h5>
 <p>The wi-fi was the nastiest part, and it seems to be a recurring theme when it comes to installing Linux on a more <em>bleeding edge</em> laptop. My initial research found this bug report: "<a href="https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1383184">Atheros Qualcomm Killer N1525 Wireless-AC [168c:003e] is not supported</a>" and it seemed like the chances were pretty slim on getting this working with 15.04 which had kernel 3.19 still.</p>
 <p>For a while the solution was a patch from kernel upstream, but it was pretty ugly. Then a <code>dkms</code> package was released, namely <code>ath10k-dkms_1.0_all.deb</code> and then an updated version <code>ath10k-dkms_1.1_all.deb</code> (can't find any reliable download links any more, even though this might be the only way to get the wi-fi working in 15.04).</p>
 <p>The solution should have came with the release of Ubuntu 15.10. Not only it is the most stable October version in quite a while, it also comes with kernel 4.2 which in theory should have included the binaries for the Killer NIC chipset, sadly it did not. The bug report description said it will be available via an <code>apt-get update</code> within a week, but I can't figure out when that edit was made to the ticket (they should have made a new post). So I ran out of patience and just downloaded the binaries from <a href="https://git.kernel.org/cgit/linux/kernel/git/firmware/linux-firmware.git/plain/ath10k/QCA6174">kernel.org</a> and copied them over into <code>/lib/firmware/ath10k/</code>. Rebooted and everything works as it should.</p>

@@ -37,7 +37,7 @@
                             <p class="tagline">coder, gamer, geek</p>
                                 <p class="links"><a href="/archives.html">Archive</a></p>
                                 <p class="social">
-                                    <a href="https://twitter.com/AngelRamboi">
+                                    <a href="https://twitter.com/angelramboi">
                                         <i class="fa fa-twitter fa-3x"></i>
                                     </a>
                                     <a href="https://github.com/aramboi">
@@ -58,6 +58,7 @@
                 <header class="post-header">
                     <h1>Making a property behave like a classmethod</h1>
                         <p class="post-meta">
+                            Thu 11 July 2013
                             // under                                 <a class="post-category" href="https://altshiftkill.com/tag/python.html">python</a>
                                 <a class="post-category" href="https://altshiftkill.com/tag/classmethod.html">classmethod</a>
                                 <a class="post-category" href="https://altshiftkill.com/tag/property.html">property</a>
@@ -67,18 +68,18 @@
             <p>Using @property is nice and peachy when you use the instance of the class, but what if you need to get that property without instantiating the class.</p>
 <p>You can do that with @classmethod (you'd say), but I want to use it as an attribute not as a method.</p>
 <p>Without further ado, the <em>hack</em>:</p>
-<div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">classproperty</span>(<span class="n">property</span>):
-    <span class="n">def</span> <span class="n">__get__</span>(<span class="k">self</span>, <span class="n">instance</span>, <span class="n">cls</span>):
-        <span class="k">return</span> <span class="n">classmethod</span>(<span class="k">self</span>.<span class="n">fget</span>).<span class="n">__get__</span>(<span class="n">instance</span>, <span class="n">cls</span>)()
+<div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">classproperty</span><span class="p">(</span><span class="nx">property</span><span class="p">)</span><span class="o">:</span>
+    <span class="nx">def</span> <span class="nx">__get__</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span> <span class="nx">instance</span><span class="p">,</span> <span class="nx">cls</span><span class="p">)</span><span class="o">:</span>
+        <span class="k">return</span> <span class="nx">classmethod</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">fget</span><span class="p">).</span><span class="nx">__get__</span><span class="p">(</span><span class="nx">instance</span><span class="p">,</span> <span class="nx">cls</span><span class="p">)()</span>
 
-<span class="k">class</span> <span class="n">Foo</span>(<span class="n">object</span>):
-    <span class="n">foobar</span> = <span class="s">&#39;This ... is ... FOOBAR!!!&#39;</span>
+<span class="kr">class</span> <span class="nx">Foo</span><span class="p">(</span><span class="nx">object</span><span class="p">)</span><span class="o">:</span>
+    <span class="nx">foobar</span> <span class="o">=</span> <span class="s1">&#39;This ... is ... FOOBAR!!!&#39;</span>
 
-    <span class="nv">@classproperty</span>
-    <span class="n">def</span> <span class="n">bar</span>(<span class="k">self</span>):
-        <span class="k">return</span> <span class="k">self</span>.<span class="n">foobar</span>
+    <span class="kd">@classproperty</span>
+    <span class="nx">def</span> <span class="nx">bar</span><span class="p">(</span><span class="nx">self</span><span class="p">)</span><span class="o">:</span>
+        <span class="k">return</span> <span class="nx">self</span><span class="p">.</span><span class="nx">foobar</span>
 
-<span class="nb">print</span> <span class="n">Foo</span>.<span class="n">bar</span>
+<span class="nx">print</span> <span class="nx">Foo</span><span class="p">.</span><span class="nx">bar</span>
 </pre></div>
             <a href="#" class="go-top">Go Top</a>
     <div class="comments">

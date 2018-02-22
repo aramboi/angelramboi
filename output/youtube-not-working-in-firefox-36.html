@@ -37,7 +37,7 @@
                             <p class="tagline">coder, gamer, geek</p>
                                 <p class="links"><a href="/archives.html">Archive</a></p>
                                 <p class="social">
-                                    <a href="https://twitter.com/AngelRamboi">
+                                    <a href="https://twitter.com/angelramboi">
                                         <i class="fa fa-twitter fa-3x"></i>
                                     </a>
                                     <a href="https://github.com/aramboi">
@@ -58,6 +58,7 @@
                 <header class="post-header">
                     <h1>Youtube not working in Firefox 3.6</h1>
                         <p class="post-meta">
+                            Mon 08 November 2010
                             // under                                 <a class="post-category" href="https://altshiftkill.com/tag/firefox.html">firefox</a>
                                 <a class="post-category" href="https://altshiftkill.com/tag/youtube.html">youtube</a>
                                 <a class="post-category" href="https://altshiftkill.com/tag/dom.html">dom</a>
@@ -67,7 +68,7 @@
             </section>
             <p>For the past couple of days YouTube did not work properly when accessed via Firefox 3.6 (at least on my home PC).</p>
 <p>Here's how the front page looked:</p>
-<p><img alt="youtube" src="/images/2011/youtube_no_thumbs.jpg" title="YouTube with no thumbs" /></p>
+<p><img alt="youtube" src="/images/2011/youtube_no_thumbs.jpg" title="YouTube with no thumbs"></p>
 <p>I wasn't able to access any videos or my account. Also Firebug showed about 10 JavaScript errors. But it worked OK in Google Chrome and Internet Explorer.</p>
 <p>So what was the problem?!? It seems that YouTube is not satisfied with the normal cookie anymore and demands the DOM Storage feature to be enabled, which allows more data to be stored on the client side. I also read reports that Gmail has the same problem, but I was unable to reproduce this on my computer.</p>
 <p>I managed to get it working by going in <strong>about:config</strong> and changing the <strong>dom.storage.enabled</strong> property to <strong>true</strong>.</p>

@@ -59,7 +59,7 @@ $ sudo reboot
 
 ### Wi-fi
 
-###### **UPDATE:** This should work with Ubuntu 15.10 out of the box after install and system updates. They seem to have added the patch around 6th of December 2015.
+##### **UPDATE:** This should work with Ubuntu 15.10 out of the box after install and system updates. They seem to have added the patch around 6th of December 2015.
 
 The wi-fi was the nastiest part, and it seems to be a recurring theme when it comes to installing Linux on a more _bleeding edge_ laptop. My initial research found this bug report: "[Atheros Qualcomm Killer N1525 Wireless-AC [168c:003e] is not supported][1]" and it seemed like the chances were pretty slim on getting this working with 15.04 which had kernel 3.19 still.
 

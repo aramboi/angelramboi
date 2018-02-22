@@ -21,11 +21,11 @@ PROFILE_IMG_URL = '/images/me.jpg'
 
 MENUITEMS = [
     ('Archive', '/archives.html'),
-    # ('About', '/about.html'),
+    # ('About', '/pages/about.html'),
 ]
 
 SOCIAL = (
-    ('twitter', 'https://twitter.com/AngelRamboi'),
+    ('twitter', 'https://twitter.com/angelramboi'),
     ('github', 'https://github.com/aramboi'),
     ('rss', 'http://altshiftkill.com/feeds/all.atom.xml'),
 )

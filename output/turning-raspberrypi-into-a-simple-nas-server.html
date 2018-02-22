@@ -37,7 +37,7 @@
                             <p class="tagline">coder, gamer, geek</p>
                                 <p class="links"><a href="/archives.html">Archive</a></p>
                                 <p class="social">
-                                    <a href="https://twitter.com/AngelRamboi">
+                                    <a href="https://twitter.com/angelramboi">
                                         <i class="fa fa-twitter fa-3x"></i>
                                     </a>
                                     <a href="https://github.com/aramboi">
@@ -58,6 +58,7 @@
                 <header class="post-header">
                     <h1>Turning a RaspberryPi into a simple NAS</h1>
                         <p class="post-meta">
+                            Wed 19 August 2015
                             // under                                 <a class="post-category" href="https://altshiftkill.com/tag/raspberrypi.html">raspberrypi</a>
                                 <a class="post-category" href="https://altshiftkill.com/tag/nas.html">nas</a>
                                 <a class="post-category" href="https://altshiftkill.com/tag/samba.html">samba</a>
@@ -76,7 +77,7 @@ $ sudo apt-get install samba samba-common-bin ntfs-3g hdparm
 <p>Get the drive identifier (ex. sda):</p>
 <div class="highlight"><pre><span></span>$ sudo fdisk -l
 
-Disk /dev/mmcblk0: 15.8 GB, <span class="m">15803088896</span> bytes
+Disk /dev/mmcblk0: <span class="m">15</span>.8 GB, <span class="m">15803088896</span> bytes
 <span class="m">4</span> heads, <span class="m">16</span> sectors/track, <span class="m">482272</span> cylinders, total <span class="m">30865408</span> sectors
 <span class="nv">Units</span> <span class="o">=</span> sectors of <span class="m">1</span> * <span class="nv">512</span> <span class="o">=</span> <span class="m">512</span> bytes
 Sector size <span class="o">(</span>logical/physical<span class="o">)</span>: <span class="m">512</span> bytes / <span class="m">512</span> bytes
@@ -86,9 +87,9 @@ Disk identifier: 0xa6202af7
         Device Boot      Start         End      Blocks   Id  System
 /dev/mmcblk0p1            <span class="m">8192</span>      <span class="m">122879</span>       <span class="m">57344</span>    c  W95 FAT32 <span class="o">(</span>LBA<span class="o">)</span>
 /dev/mmcblk0p2          <span class="m">122880</span>    <span class="m">30865407</span>    <span class="m">15371264</span>   <span class="m">83</span>  Linux
-Note: sector size is <span class="m">4096</span> <span class="o">(</span>not 512<span class="o">)</span>
+Note: sector size is <span class="m">4096</span> <span class="o">(</span>not <span class="m">512</span><span class="o">)</span>
 
-Disk /dev/sda: 2000.4 GB, <span class="m">2000398929920</span> bytes
+Disk /dev/sda: <span class="m">2000</span>.4 GB, <span class="m">2000398929920</span> bytes
 <span class="m">255</span> heads, <span class="m">63</span> sectors/track, <span class="m">30400</span> cylinders, total <span class="m">488378645</span> sectors
 <span class="nv">Units</span> <span class="o">=</span> sectors of <span class="m">1</span> * <span class="nv">4096</span> <span class="o">=</span> <span class="m">4096</span> bytes
 Sector size <span class="o">(</span>logical/physical<span class="o">)</span>: <span class="m">4096</span> bytes / <span class="m">4096</span> bytes
@@ -194,15 +195,15 @@ $ sudo apt-get autoremove --purge <span class="k">$(</span>deborphan<span class=
  HDIO_DRIVE_CMD<span class="o">(</span>setidle<span class="o">)</span> failed: Invalid argument
 
 $ sudo ls -al /dev/disk/by-id/
-total 0
+total <span class="m">0</span>
 drwxr-xr-x <span class="m">2</span> root root <span class="m">280</span> Jan  <span class="m">1</span>  <span class="m">1970</span> .
 drwxr-xr-x <span class="m">6</span> root root <span class="m">120</span> Jan  <span class="m">1</span>  <span class="m">1970</span> ..
 lrwxrwxrwx <span class="m">1</span> root root   <span class="m">9</span> Jan  <span class="m">1</span>  <span class="m">1970</span> ata-ST2000DM001-1E6164_W1E842SW -&gt; ../../sda  <span class="c1"># we are going to use this ID</span>
 lrwxrwxrwx <span class="m">1</span> root root  <span class="m">10</span> Jan  <span class="m">1</span>  <span class="m">1970</span> ata-ST2000DM001-1E6164_W1E842SW-part1 -&gt; ../../sda1
 lrwxrwxrwx <span class="m">1</span> root root  <span class="m">10</span> Jan  <span class="m">1</span>  <span class="m">1970</span> ata-ST2000DM001-1E6164_W1E842SW-part2 -&gt; ../../sda2
 lrwxrwxrwx <span class="m">1</span> root root  <span class="m">13</span> Jan  <span class="m">1</span>  <span class="m">1970</span> memstick-SD16G_0xc70001ff -&gt; ../../mmcblk0
-lrwxrwxrwx <span class="m">1</span> root root  <span class="m">15</span> Dec  <span class="m">7</span> 21:41 memstick-SD16G_0xc70001ff-part1 -&gt; ../../mmcblk0p1
-lrwxrwxrwx <span class="m">1</span> root root  <span class="m">15</span> Dec  <span class="m">7</span> 21:41 memstick-SD16G_0xc70001ff-part2 -&gt; ../../mmcblk0p2
+lrwxrwxrwx <span class="m">1</span> root root  <span class="m">15</span> Dec  <span class="m">7</span> <span class="m">21</span>:41 memstick-SD16G_0xc70001ff-part1 -&gt; ../../mmcblk0p1
+lrwxrwxrwx <span class="m">1</span> root root  <span class="m">15</span> Dec  <span class="m">7</span> <span class="m">21</span>:41 memstick-SD16G_0xc70001ff-part2 -&gt; ../../mmcblk0p2
 lrwxrwxrwx <span class="m">1</span> root root   <span class="m">9</span> Jan  <span class="m">1</span>  <span class="m">1970</span> scsi-SSeagate_Expansion_Desk_NA4KLXK2 -&gt; ../../sda
 lrwxrwxrwx <span class="m">1</span> root root  <span class="m">10</span> Jan  <span class="m">1</span>  <span class="m">1970</span> scsi-SSeagate_Expansion_Desk_NA4KLXK2-part1 -&gt; ../../sda1
 lrwxrwxrwx <span class="m">1</span> root root  <span class="m">10</span> Jan  <span class="m">1</span>  <span class="m">1970</span> scsi-SSeagate_Expansion_Desk_NA4KLXK2-part2 -&gt; ../../sda2
@@ -213,11 +214,11 @@ lrwxrwxrwx <span class="m">1</span> root root  <span class="m">10</span> Jan  <s
 $ sudo hdparm -B127 -S240 /dev/disk/by-id/ata-ST2000DM001-1E6164_W1E842SW <span class="c1"># using the ID found above atributed to sda</span>
 
 /dev/disk/by-id/ata-ST2000DM001-1E6164_W1E842SW:
- setting Advanced Power Management level to 0x7f <span class="o">(</span>127<span class="o">)</span>
+ setting Advanced Power Management level to 0x7f <span class="o">(</span><span class="m">127</span><span class="o">)</span>
  HDIO_DRIVE_CMD failed: Invalid argument
  setting standby to <span class="m">240</span> <span class="o">(</span><span class="m">20</span> minutes<span class="o">)</span>
  HDIO_DRIVE_CMD<span class="o">(</span>setidle<span class="o">)</span> failed: Invalid argument
- <span class="nv">APM_level</span>  <span class="o">=</span> 127
+ <span class="nv">APM_level</span>  <span class="o">=</span> <span class="m">127</span>
 </pre></div>
 
 
