@@ -6,7 +6,7 @@ AUTHOR = u'Angel Ramboi'
 SITENAME = u'Angel Ramboi'
 SITEURL = 'http://localhost:8080'
 FEED_DOMAIN = SITEURL
-TAGLINE = u'coder, gamer, geek, feminist'
+TAGLINE = u'coder, gamer, geek'
 
 PATH = 'content'
 

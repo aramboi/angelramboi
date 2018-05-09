@@ -1,4 +1,4 @@
-Title: Install Ubuntu side by side with Windows 10 on an Alienware 13 R2 laptop
+Title: Install Ubuntu side by side with Windows 10 on an Alienware 13 R2 2015 laptop
 Date: 2015-11-10
 Category: linux
 Slug: install-ubuntu-on-alienware-13
