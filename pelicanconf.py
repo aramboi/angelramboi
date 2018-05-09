@@ -6,11 +6,11 @@ AUTHOR = u'Angel Ramboi'
 SITENAME = u'Angel Ramboi'
 SITEURL = 'http://localhost:8080'
 FEED_DOMAIN = SITEURL
-TAGLINE = u'coder, gamer, geek'
+TAGLINE = u'coder, gamer, geek, feminist'
 
 PATH = 'content'
 
-TIMEZONE = 'Europe/Madrid'
+TIMEZONE = 'Europe/Bucharest'
 DEFAULT_LANG = u'en'
 DEFAULT_PAGINATION = 15
 
