@@ -32,7 +32,7 @@
                 <div class="cover-body">
                     <header class="header">
                         <hgroup>
-                            <a href="https://www.angelramboi.com"><img class="avatar" src="/images/me.jpg"><a>
+                            <a href="https://www.angelramboi.com"><img class="avatar" src="/images/profile-pic.jpg"><a>
                             <h1 class="brand-main"><a href="https://www.angelramboi.com">Angel Ramboi</a></h1>
                             <p class="tagline">coder, gamer, geek</p>
                                 <p class="links"><a href="/archives.html">Archive</a></p>
@@ -68,8 +68,8 @@
             <p>If you migrated from Yahoo Messenger! to Pidgin you probably found out that some handy keyboard shortcuts are missing and no alternatives are defined by default.</p>
 <p>For example, I used to <em>Ctrl+h</em> to hide/show my off-line buddies, but I didn't have a shortcut for that in Pidgin. I did not find a working solution on the <em>interwebs</em>. Also tried a bunch of plugins, but they didn't cover the off-line buddies part.</p>
 <p>So I decided to poke around in the Pidgin configuration folder <code>.purple</code> and I found a file called <code>accels</code>. I took a leap o faith, uncommented and edited this part:</p>
-<div class="highlight"><pre><span></span>(gtk\_accel\_path &quot;\&lt;PurpleMain\&gt;/Buddies/Show/Offline Buddies&quot; &quot;\&lt;Control\&gt;h&quot;)
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">(gtk\_accel\_path &quot;\&lt;PurpleMain\&gt;/Buddies/Show/Offline Buddies&quot; &quot;\&lt;Control\&gt;h&quot;)</span>
+</code></pre></div>
 
 
 <p>Restarted Pidgin and it worked. There's a bunch of unused actions in that file so feel free to experiment. :)</p>

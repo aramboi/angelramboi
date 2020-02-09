@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Angel Ramboi</title><link href="https://www.angelramboi.com/" rel="alternate"></link><link href="https://www.angelramboi.com/feeds/all.atom.xml" rel="self"></link><id>https://www.angelramboi.com/</id><updated>2015-11-10T00:00:00+02:00</updated><entry><title>Install Ubuntu side by side with Windows 10 on an Alienware 13 R2 2015 laptop</title><link href="https://www.angelramboi.com/install-ubuntu-on-alienware-13.html" rel="alternate"></link><published>2015-11-10T00:00:00+02:00</published><updated>2015-11-10T00:00:00+02:00</updated><author><name>Angel Ramboi</name></author><id>tag:www.angelramboi.com,2015-11-10:/install-ubuntu-on-alienware-13.html</id><summary type="html">&lt;p&gt;The Alienware 13 R2 is an awesome gaming rig, so of course the Linux the support is ... meh!&lt;/p&gt;</summary><content type="html">&lt;p&gt;The Alienware 13 R2 is probably the best compact gaming rig out there, so as you'd expect the Linux the support is underwhelming, to say the least. This setup assumes we want to keep the Windows 10 install and have a dual-boot system.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Angel Ramboi</title><link href="https://www.angelramboi.com/" rel="alternate"></link><link href="https://www.angelramboi.com/feeds/all.atom.xml" rel="self"></link><id>https://www.angelramboi.com/</id><updated>2015-11-10T00:00:00+01:00</updated><entry><title>Install Ubuntu side by side with Windows 10 on an Alienware 13 R2 2015 laptop</title><link href="https://www.angelramboi.com/install-ubuntu-on-alienware-13.html" rel="alternate"></link><published>2015-11-10T00:00:00+01:00</published><updated>2015-11-10T00:00:00+01:00</updated><author><name>Angel Ramboi</name></author><id>tag:www.angelramboi.com,2015-11-10:/install-ubuntu-on-alienware-13.html</id><summary type="html">&lt;p&gt;The Alienware 13 R2 is an awesome gaming rig, so of course the Linux the support is ... meh!&lt;/p&gt;</summary><content type="html">&lt;p&gt;The Alienware 13 R2 is probably the best compact gaming rig out there, so as you'd expect the Linux the support is underwhelming, to say the least. This setup assumes we want to keep the Windows 10 install and have a dual-boot system.&lt;/p&gt;
 &lt;h3&gt;Windows preparations&lt;/h3&gt;
 &lt;p&gt;First we need to shrink the main Windows partition (a guide for that can be found &lt;a href="http://www.howtogeek.com/howto/windows-vista/resize-a-partition-for-free-in-windows-vista/"&gt;here&lt;/a&gt; on &lt;em&gt;How-to Geek&lt;/em&gt;). By default Dell makes some extra partitions for the recovery and the Windows installation kit. Also, Windows 10 adds its own two extra system partitions, so be careful not to mess those up. I did a backup of the Dell ones and deleted them, but you can keep them, it should be the same either way.&lt;/p&gt;
 &lt;p&gt;I was unable to to get enough space for Ubuntu without disabling the &lt;code&gt;Page File&lt;/code&gt; and &lt;code&gt;System Restore&lt;/code&gt;, shrink partition and enable them back again, but you might not have to.&lt;/p&gt;
@@ -12,7 +12,7 @@
 &lt;p&gt;To do that boot into recovery mode by selecting &lt;code&gt;Advanced options for Ubuntu&lt;/code&gt; and then the second option in the boot menu, the one that has appended &lt;code&gt;recovery menu&lt;/code&gt; to the latest kernel version string. You will be presented with several options as seen below:&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Ubuntu recovery menu" src="/images/2015/ubuntu-recovery-mode-menu.png" title="Ubuntu recovery menu"&gt;&lt;/p&gt;
 &lt;p&gt;Choose the &lt;code&gt;Enable networking&lt;/code&gt; option and press &lt;code&gt;OK&lt;/code&gt;. After that is finished choose the option to &lt;code&gt;Drop into root shell prompt&lt;/code&gt;. In the shell do:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ubuntu-drivers &lt;span class="nv"&gt;devices&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ ubuntu-drivers &lt;span class="nv"&gt;devices&lt;/span&gt;
 &lt;span class="o"&gt;==&lt;/span&gt; /sys/devices/pci0000:00/0000:00:1c.4/0000:03:00.0 &lt;span class="o"&gt;==&lt;/span&gt;
 model    : GM107M &lt;span class="o"&gt;[&lt;/span&gt;GeForce GTX 960M&lt;span class="o"&gt;]&lt;/span&gt;
 modalias : pci:v000010DEd0000139Bsv00001028sd000006E1bc03sc02i00
@@ -24,15 +24,15 @@ driver   : nvidia-352 - distro non-free recommended
 $ apt-get install nvidia-352  &lt;span class="c1"&gt;# the number must match the version you got above&lt;/span&gt;
 $ nvidia-xconfig
 $ reboot
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;There is a good part though to using proprietary driver, you can choose the video chipset the OS uses, either nVidia or Intel (which promises longer battery life). The not so cool part is that this switch does not happen on the fly and you have to log out and log in again to apply the change.&lt;/p&gt;
 &lt;h3&gt;Touchpad&lt;/h3&gt;
 &lt;p&gt;Getting the Synaptic touchpad to work was a lucky find. After doing a lot of messing around with &lt;code&gt;xinput&lt;/code&gt; and having little success, I found a seemingly unrelated post that suggested blacklisting the &lt;code&gt;i2c_hid&lt;/code&gt; kernel module:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;blacklist i2c_hid&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /etc/modprobe.d/blacklist.conf
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;blacklist i2c_hid&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /etc/modprobe.d/blacklist.conf
 $ sudo reboot
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h3&gt;Wi-fi&lt;/h3&gt;
@@ -45,17 +45,17 @@ $ sudo reboot
 &lt;p&gt;The good news is that customizations done in Windows to any of the LEDs carries out to Ubuntu also.&lt;/p&gt;
 &lt;h3&gt;Conclusion&lt;/h3&gt;
 &lt;p&gt;Alienware 13 R2 is a great and powerful gaming laptop, and with a bit of work it behaves really well under Linux also. I played the native Steam version of "Bioshock Infinite" on high settings with very good frame rate under Ubuntu 15.10, so I am very happy with how things turned up.&lt;/p&gt;
-&lt;p&gt;PS: For this blog post I wanted to do also a recording with "Bioshock Infinite" running native on Ubuntu, but the frame rates while recording were horrendous and lowering the settings would not have done the game justice.&lt;/p&gt;</content><category term="ubuntu"></category><category term="alienware"></category></entry><entry><title>Turning a RaspberryPi into a simple NAS</title><link href="https://www.angelramboi.com/turning-raspberrypi-into-a-simple-nas-server.html" rel="alternate"></link><published>2015-08-19T00:00:00+03:00</published><updated>2015-08-19T00:00:00+03:00</updated><author><name>Angel Ramboi</name></author><id>tag:www.angelramboi.com,2015-08-19:/turning-raspberrypi-into-a-simple-nas-server.html</id><summary type="html">&lt;p&gt;This is my step-by-step guide on how to setup a RaspberryPi with an external USB HDD as a network accessed storage (aka NAS)&lt;/p&gt;</summary><content type="html">&lt;p&gt;This is based on a fresh install of Rasbian downloaded from the &lt;a href="https://www.raspberrypi.org/downloads/raspbian/"&gt;official site&lt;/a&gt; and using a NTFS formated external USB drive.&lt;/p&gt;
+&lt;p&gt;PS: For this blog post I wanted to do also a recording with "Bioshock Infinite" running native on Ubuntu, but the frame rates while recording were horrendous and lowering the settings would not have done the game justice.&lt;/p&gt;</content><category term="linux"></category><category term="ubuntu"></category><category term="alienware"></category></entry><entry><title>Turning a RaspberryPi into a simple NAS</title><link href="https://www.angelramboi.com/turning-raspberrypi-into-a-simple-nas-server.html" rel="alternate"></link><published>2015-08-19T00:00:00+02:00</published><updated>2015-08-19T00:00:00+02:00</updated><author><name>Angel Ramboi</name></author><id>tag:www.angelramboi.com,2015-08-19:/turning-raspberrypi-into-a-simple-nas-server.html</id><summary type="html">&lt;p&gt;This is my step-by-step guide on how to setup a RaspberryPi with an external USB HDD as a network accessed storage (aka NAS)&lt;/p&gt;</summary><content type="html">&lt;p&gt;This is based on a fresh install of Rasbian downloaded from the &lt;a href="https://www.raspberrypi.org/downloads/raspbian/"&gt;official site&lt;/a&gt; and using a NTFS formated external USB drive.&lt;/p&gt;
 &lt;h3&gt;The setup&lt;/h3&gt;
 &lt;p&gt;Install all the packages we need to save the day:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo apt-get update
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo apt-get update
 $ sudo apt-get upgrade
 $ sudo apt-get install samba samba-common-bin ntfs-3g hdparm
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Get the drive identifier (ex. sda):&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo fdisk -l
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo fdisk -l
 
 Disk /dev/mmcblk0: &lt;span class="m"&gt;15&lt;/span&gt;.8 GB, &lt;span class="m"&gt;15803088896&lt;/span&gt; bytes
 &lt;span class="m"&gt;4&lt;/span&gt; heads, &lt;span class="m"&gt;16&lt;/span&gt; sectors/track, &lt;span class="m"&gt;482272&lt;/span&gt; cylinders, total &lt;span class="m"&gt;30865408&lt;/span&gt; sectors
@@ -79,25 +79,25 @@ Disk identifier: 0xbc81592b
    Device Boot      Start         End      Blocks   Id  System
 /dev/sda1            &lt;span class="m"&gt;2048&lt;/span&gt;   &lt;span class="m"&gt;488263544&lt;/span&gt;  &lt;span class="m"&gt;1953045988&lt;/span&gt;    &lt;span class="m"&gt;7&lt;/span&gt;  HPFS/NTFS/exFAT
 /dev/sda2   *   &lt;span class="m"&gt;488263545&lt;/span&gt;   &lt;span class="m"&gt;488378644&lt;/span&gt;      &lt;span class="m"&gt;460400&lt;/span&gt;    c  W95 FAT32 &lt;span class="o"&gt;(&lt;/span&gt;LBA&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;My drive identifier is &lt;code&gt;sda&lt;/code&gt; in this case, so for the rest of the guide I will use that. Please use the identifier returned for your case.&lt;/p&gt;
 &lt;p&gt;Lets create and set the permissions for the future shared folder, and add a setup line to &lt;code&gt;/etc/fstab&lt;/code&gt; in order to mount it properly:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo mkdir -p /media/HDD &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo chmod -R &lt;span class="m"&gt;777&lt;/span&gt; /media/HDD/
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo mkdir -p /media/HDD &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo chmod -R &lt;span class="m"&gt;777&lt;/span&gt; /media/HDD/
 $ sudo &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;/dev/sda1       /media/HDD      ntfs-3g defaults,noatime  0       0&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /etc/fstab
 $ sudo umount /dev/sda1 &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo mount /dev/sda1
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;In the samba config &lt;code&gt;/etc/samba/smb.conf&lt;/code&gt; uncomment the following lines:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;security = user
-socket options = TCP_NODELAY
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;security = user&lt;/span&gt;
+&lt;span class="err"&gt;socket options = TCP_NODELAY&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;And add this at the end:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;[media]&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;[media]&lt;/span&gt;
     &lt;span class="na"&gt;comment&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;Media share&lt;/span&gt;
 &lt;span class="s"&gt;    path = /media/HDD&lt;/span&gt;
 &lt;span class="s"&gt;    valid users = @users&lt;/span&gt;
@@ -108,45 +108,45 @@ socket options = TCP_NODELAY
 &lt;span class="s"&gt;    browseable = yes&lt;/span&gt;
 &lt;span class="s"&gt;    guest ok  = no&lt;/span&gt;
 &lt;span class="s"&gt;    read only = no&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This will allow all users that authenticate properly to access that folder with write access.&lt;/p&gt;
 &lt;p&gt;Test configuration and restart the server:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ testparm
-Load smb config files from /etc/samba/smb.conf
-...
-Loaded services file OK.
-Server role: ROLE_STANDALONE
-Press enter to see a dump of your service definitions
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;testparm&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="k"&gt;Load&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;smb&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;config&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;files&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;from&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;samba&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;smb&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;conf&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="p"&gt;...&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;Loaded&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;services&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;file&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;OK&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;Server&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;role&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ROLE_STANDALONE&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;Press&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;enter&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;see&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;dump&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;of&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;your&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;service&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;definitions&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 
-&lt;span class="o"&gt;[&lt;/span&gt;global&lt;span class="o"&gt;]&lt;/span&gt;
-  ...
-$ sudo service samba restart
-&lt;/pre&gt;&lt;/div&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;global&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p"&gt;...&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;service&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;samba&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;restart&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Create a local user and add it to samba users:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo useradd &amp;lt;USERNAME&amp;gt; -m -G users
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo useradd &amp;lt;USERNAME&amp;gt; -m -G users
 $ sudo passwd &amp;lt;USERNAME&amp;gt;
 $ sudo smbpasswd -a &amp;lt;USERNAME&amp;gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;And you're done. You should be able to find the server on the local network now and connect to it with the credentials provided above.&lt;/p&gt;
 &lt;h2&gt;Extras&lt;/h2&gt;
 &lt;h3&gt;SD card space&lt;/h3&gt;
 &lt;p&gt;Saves ~1GB disk space on the system card:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo apt-get install deborphan
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo apt-get install deborphan
 $ sudo apt-get purge wolfram-engine java-common oracle-java8-jdk
 $ sudo apt-get remove --auto-remove --purge libx11-.*
 $ sudo apt-get autoremove --purge &lt;span class="k"&gt;$(&lt;/span&gt;deborphan&lt;span class="k"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h3&gt;Restricted folders&lt;/h3&gt;
 &lt;p&gt;Here is a sample Samba config for a folder restricted to a certain user, path and read only:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;[media-read-only]&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;[media-read-only]&lt;/span&gt;
   &lt;span class="na"&gt;comment&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;Media Files Read-Only&lt;/span&gt;
 &lt;span class="s"&gt;  path = /media/HDD/path/to/read/only/media/files&lt;/span&gt;
 &lt;span class="s"&gt;  valid users = &amp;lt;USERNAME&amp;gt;&lt;/span&gt;
@@ -157,19 +157,19 @@ $ sudo apt-get autoremove --purge &lt;span class="k"&gt;$(&lt;/span&gt;deborphan
 &lt;span class="s"&gt;  writeable = no&lt;/span&gt;
 &lt;span class="s"&gt;  guest ok  = no&lt;/span&gt;
 &lt;span class="s"&gt;  read only = yes&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h3&gt;Power savings&lt;/h3&gt;
 &lt;p&gt;If you want to spin-down your external hard drive when it's inactive, this should work on most drives:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo hdparm -S &lt;span class="m"&gt;240&lt;/span&gt; /dev/sda
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo hdparm -S &lt;span class="m"&gt;240&lt;/span&gt; /dev/sda
 /dev/sda:
  setting standby to &lt;span class="m"&gt;240&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;20&lt;/span&gt; minutes&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Unfortunately it did not work on mine, so I had to do the following hack:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo hdparm -S &lt;span class="m"&gt;240&lt;/span&gt; /dev/sda
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo hdparm -S &lt;span class="m"&gt;240&lt;/span&gt; /dev/sda
 /dev/sda:
  setting standby to &lt;span class="m"&gt;240&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;20&lt;/span&gt; minutes&lt;span class="o"&gt;)&lt;/span&gt;
  HDIO_DRIVE_CMD&lt;span class="o"&gt;(&lt;/span&gt;setidle&lt;span class="o"&gt;)&lt;/span&gt; failed: Invalid argument
@@ -199,53 +199,53 @@ $ sudo hdparm -B127 -S240 /dev/disk/by-id/ata-ST2000DM001-1E6164_W1E842SW &lt;sp
  setting standby to &lt;span class="m"&gt;240&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;20&lt;/span&gt; minutes&lt;span class="o"&gt;)&lt;/span&gt;
  HDIO_DRIVE_CMD&lt;span class="o"&gt;(&lt;/span&gt;setidle&lt;span class="o"&gt;)&lt;/span&gt; failed: Invalid argument
  &lt;span class="nv"&gt;APM_level&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;127&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Don't worry about the errors, it works just fine. :)&lt;/p&gt;</content><category term="raspberrypi"></category><category term="nas"></category><category term="samba"></category></entry><entry><title>Making a property behave like a classmethod</title><link href="https://www.angelramboi.com/making-a-property-behave-like-a-classmethod.html" rel="alternate"></link><published>2013-07-11T00:00:00+03:00</published><updated>2013-07-11T00:00:00+03:00</updated><author><name>Angel Ramboi</name></author><id>tag:www.angelramboi.com,2013-07-11:/making-a-property-behave-like-a-classmethod.html</id><summary type="html">&lt;p&gt;Using @property is nice and peachy when you use the instance of the class, but what if you need to get that property without instantiating the class.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Using @property is nice and peachy when you use the instance of the class, but what if you need to get that property without instantiating the class.&lt;/p&gt;
+&lt;p&gt;Don't worry about the errors, it works just fine. :)&lt;/p&gt;</content><category term="linux"></category><category term="raspberrypi"></category><category term="nas"></category><category term="samba"></category></entry><entry><title>Making a property behave like a classmethod</title><link href="https://www.angelramboi.com/making-a-property-behave-like-a-classmethod.html" rel="alternate"></link><published>2013-07-11T00:00:00+02:00</published><updated>2013-07-11T00:00:00+02:00</updated><author><name>Angel Ramboi</name></author><id>tag:www.angelramboi.com,2013-07-11:/making-a-property-behave-like-a-classmethod.html</id><summary type="html">&lt;p&gt;Using @property is nice and peachy when you use the instance of the class, but what if you need to get that property without instantiating the class.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Using @property is nice and peachy when you use the instance of the class, but what if you need to get that property without instantiating the class.&lt;/p&gt;
 &lt;p&gt;You can do that with @classmethod (you'd say), but I want to use it as an attribute not as a method.&lt;/p&gt;
 &lt;p&gt;Without further ado, the &lt;em&gt;hack&lt;/em&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;classproperty&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;property&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-    &lt;span class="nx"&gt;def&lt;/span&gt; &lt;span class="nx"&gt;__get__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;cls&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;classmethod&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;fget&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;__get__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;cls&lt;/span&gt;&lt;span class="p"&gt;)()&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;classproperty&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;property&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;def&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;__get__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;cls&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;classmethod&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fget&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;__get__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;cls&lt;/span&gt;&lt;span class="p"&gt;)()&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 
-&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;Foo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;object&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-    &lt;span class="nx"&gt;foobar&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;This ... is ... FOOBAR!!!&amp;#39;&lt;/span&gt;
+&lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Foo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;object&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;foobar&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;This ... is ... FOOBAR!!!&amp;#39;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 
-    &lt;span class="kd"&gt;@classproperty&lt;/span&gt;
-    &lt;span class="nx"&gt;def&lt;/span&gt; &lt;span class="nx"&gt;bar&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;foobar&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;@classproperty&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;def&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;bar&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;foobar&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 
-&lt;span class="nx"&gt;print&lt;/span&gt; &lt;span class="nx"&gt;Foo&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;bar&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</content><category term="python"></category><category term="classmethod"></category><category term="property"></category></entry><entry><title>Gnome3 on Ubuntu 11.04 Natty (impressions)</title><link href="https://www.angelramboi.com/gnome3-on-ubuntu-1104-natty-impressions.html" rel="alternate"></link><published>2011-06-15T18:31:00+03:00</published><updated>2011-06-15T18:31:00+03:00</updated><author><name>Angel Ramboi</name></author><id>tag:www.angelramboi.com,2011-06-15:/gnome3-on-ubuntu-1104-natty-impressions.html</id><summary type="html">&lt;p&gt;Because Unity sucks and I got bored with Gnome 2.&lt;/p&gt;</summary><content type="html">&lt;p&gt;I decided to take a leap of faith and install Gnome3 and gnome-shell on my Ubuntu box.&lt;/p&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Foo&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;bar&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="python"></category><category term="python"></category><category term="classmethod"></category><category term="property"></category></entry><entry><title>Gnome3 on Ubuntu 11.04 Natty (impressions)</title><link href="https://www.angelramboi.com/gnome3-on-ubuntu-1104-natty-impressions.html" rel="alternate"></link><published>2011-06-15T18:31:00+02:00</published><updated>2011-06-15T18:31:00+02:00</updated><author><name>Angel Ramboi</name></author><id>tag:www.angelramboi.com,2011-06-15:/gnome3-on-ubuntu-1104-natty-impressions.html</id><summary type="html">&lt;p&gt;Because Unity sucks and I got bored with Gnome 2.&lt;/p&gt;</summary><content type="html">&lt;p&gt;I decided to take a leap of faith and install Gnome3 and gnome-shell on my Ubuntu box.&lt;/p&gt;
 &lt;p&gt;First the installation:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo add-apt-repository ppa:gnome3-team/gnome3
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo add-apt-repository ppa:gnome3-team/gnome3
 $ sudo apt-get update
 $ sudo apt-get dist-upgrade
 $ sudo apt-get install gnome-shell
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Some fixes after restart:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo apt-get purge unity scrollbar* gnome-accessibility-themes
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo apt-get purge unity scrollbar* gnome-accessibility-themes
 $ sudo apt-get install gnome-themes-standard
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Extra installs:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo apt-get install gnome-tweak-tool dconf-tools gnome-shell-extensions-common gnome-shell-extensions-user-theme
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo apt-get install gnome-tweak-tool dconf-tools gnome-shell-extensions-common gnome-shell-extensions-user-theme
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Edit startup applications (the shortcut is missing from the applications list):&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ gnome-session-properties
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ gnome-session-properties
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;If you want to revert everything:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo apt-get install ppa-purge
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo apt-get install ppa-purge
 $ sudo ppa-purge ppa:gnome3-team/gnome3
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Nice features I discovered so far:&lt;/p&gt;
@@ -268,71 +268,71 @@ $ sudo ppa-purge ppa:gnome3-team/gnome3
 &lt;li&gt;&lt;a href="http://www.webupd8.org/2011/04/themeselector-gnome-shell-extension-to.html" title="ThemeSelector: GNOME Shell Extension To Change Themes (With Previews)"&gt;ThemeSelector: GNOME Shell Extension To Change Themes (With Previews)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www.webupd8.org/2011/06/gnome-shell-system-monitor-extension.html" title="GNOME Shell System Monitor Extension Gets A Preferences Dialog And Lots Of New Features"&gt;GNOME Shell System Monitor Extension Gets A Preferences Dialog And Lots Of New Features&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www.webupd8.org/2011/06/move-icons-from-message-tray-to-top.html" title="Move Icons From Message Tray To The Top GNOME Shell Panel (Top Bar) Using IconManager Extension"&gt;Move Icons From Message Tray To The Top GNOME Shell Panel (Top Bar) Using IconManager Extension&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="gnome3"></category><category term="ubuntu"></category></entry><entry><title>Getting the latest Firefox release for 64bit Linux</title><link href="https://www.angelramboi.com/getting-the-latest-firefox-release-for-64bit-linux.html" rel="alternate"></link><published>2011-06-09T12:24:00+03:00</published><updated>2011-06-09T12:24:00+03:00</updated><author><name>Angel Ramboi</name></author><id>tag:www.angelramboi.com,2011-06-09:/getting-the-latest-firefox-release-for-64bit-linux.html</id><summary type="html">&lt;p&gt;With working Flash Player? Please, tell me more.&lt;/p&gt;</summary><content type="html">&lt;p&gt;On the usual channels (like &lt;a href="http://www.mozilla.com/en-US/firefox/channel/"&gt;http://www.mozilla.com/en-US/firefox/channel/&lt;/a&gt; ) you can only download the 32bit version of the latest Firefox release.&lt;/p&gt;
+&lt;/ul&gt;</content><category term="linux"></category><category term="gnome3"></category><category term="ubuntu"></category></entry><entry><title>Getting the latest Firefox release for 64bit Linux</title><link href="https://www.angelramboi.com/getting-the-latest-firefox-release-for-64bit-linux.html" rel="alternate"></link><published>2011-06-09T12:24:00+02:00</published><updated>2011-06-09T12:24:00+02:00</updated><author><name>Angel Ramboi</name></author><id>tag:www.angelramboi.com,2011-06-09:/getting-the-latest-firefox-release-for-64bit-linux.html</id><summary type="html">&lt;p&gt;With working Flash Player? Please, tell me more.&lt;/p&gt;</summary><content type="html">&lt;p&gt;On the usual channels (like &lt;a href="http://www.mozilla.com/en-US/firefox/channel/"&gt;http://www.mozilla.com/en-US/firefox/channel/&lt;/a&gt; ) you can only download the 32bit version of the latest Firefox release.&lt;/p&gt;
 &lt;p&gt;But I stumbled over a public Mozilla FTP where they hold all releases, including the 64bit one.&lt;/p&gt;
 &lt;p&gt;Link: &lt;a href="ftp://ftp.mozilla.org/pub/mozilla.org/firefox/releases/"&gt;ftp://ftp.mozilla.org/pub/mozilla.org/firefox/releases/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;This way all the installed plug-ins on your 64bit *nix system will work out of the box (including Adobe Flash).&lt;/p&gt;</content><category term="firefox"></category><category term="beta"></category><category term="linux"></category></entry><entry><title>Installing Firefox 4 beta with Adobe Flash Player on Ubuntu 64bit</title><link href="https://www.angelramboi.com/installing-firefox-4-beta-with-adobe-flash-player-on-ubuntu-64bit.html" rel="alternate"></link><published>2011-01-23T00:00:00+02:00</published><updated>2011-01-23T00:00:00+02:00</updated><author><name>Angel Ramboi</name></author><id>tag:www.angelramboi.com,2011-01-23:/installing-firefox-4-beta-with-adobe-flash-player-on-ubuntu-64bit.html</id><summary type="html">&lt;p&gt;Hint - you won't find it in the normal release channels.&lt;/p&gt;</summary><content type="html">&lt;p&gt;You can get the latest Firefox build from the &lt;a href="https://launchpad.net/~ubuntu-mozilla-daily/+archive/ppa" title="Mozilla PPA"&gt;launchpad ppa repositories&lt;/a&gt;, but I found that the periodical beta release on Mozilla's website tends to be more stable and usable than the daily builds.&lt;/p&gt;
+&lt;p&gt;This way all the installed plug-ins on your 64bit *nix system will work out of the box (including Adobe Flash).&lt;/p&gt;</content><category term="browser"></category><category term="firefox"></category><category term="beta"></category><category term="linux"></category></entry><entry><title>Installing Firefox 4 beta with Adobe Flash Player on Ubuntu 64bit</title><link href="https://www.angelramboi.com/installing-firefox-4-beta-with-adobe-flash-player-on-ubuntu-64bit.html" rel="alternate"></link><published>2011-01-23T00:00:00+01:00</published><updated>2011-01-23T00:00:00+01:00</updated><author><name>Angel Ramboi</name></author><id>tag:www.angelramboi.com,2011-01-23:/installing-firefox-4-beta-with-adobe-flash-player-on-ubuntu-64bit.html</id><summary type="html">&lt;p&gt;Hint - you won't find it in the normal release channels.&lt;/p&gt;</summary><content type="html">&lt;p&gt;You can get the latest Firefox build from the &lt;a href="https://launchpad.net/~ubuntu-mozilla-daily/+archive/ppa" title="Mozilla PPA"&gt;launchpad ppa repositories&lt;/a&gt;, but I found that the periodical beta release on Mozilla's website tends to be more stable and usable than the daily builds.&lt;/p&gt;
 &lt;p&gt;Unfortunately the downloadable build is only 32bit, thus not compatible with the installed plugins in Ubuntu 64bit version. After a bit of research I found out how to solve this little problem.&lt;/p&gt;
 &lt;p&gt;First you need to download the &lt;a href="http://www.mozilla.com/en-US/firefox/all-beta.html" title="Mozilla Firefox Beta"&gt;Firefox beta&lt;/a&gt;. Then &lt;code&gt;untar&lt;/code&gt; it to either you home folder or to &lt;code&gt;/opt/&lt;/code&gt; (I like this way better, but you have to use &lt;code&gt;sudo&lt;/code&gt; to copy files here). You can &lt;code&gt;cd&lt;/code&gt; to that folder and launch Firefox (use: &lt;em&gt;./firefox&lt;/em&gt; or &lt;em&gt;./firefox -P&lt;/em&gt; to be able to create and/or choose your profile, more on that &lt;a href="http://www.altshiftkill.com/2010/11/different-profiles-for-firefox-3-6-and-4-beta-on-windows/" title="Different profiles for Firefox 3.6 and 4 beta on Windows"&gt;here&lt;/a&gt;)&lt;/p&gt;
 &lt;p&gt;As you can see there are no plugins in the add-ons page. Copying the plugin folder from the default installation does not work (duh!). So I thought to myself: this is some kind of standalone Firefox installation, then I would need a standalone version of Adobe Flash. And I found it here: &lt;a href="http://www.adobe.com/support/flashplayer/downloads.html" title="Flash Player download"&gt;http://www.adobe.com/support/flashplayer/downloads.html&lt;/a&gt;. There is a Linux version of the &lt;em&gt;Flash Player 10.1 Plugin content debugger&lt;/em&gt;, as it is called. Download it and &lt;code&gt;untar&lt;/code&gt; it to the &lt;code&gt;plugins&lt;/code&gt; folder in your Firefox installation.&lt;/p&gt;
-&lt;p&gt;And there you have it, Adobe Flash Player in Firefox 4 beta. (Please keep in mind that both Firefox and Flash need to be updated manually if installed this way)&lt;/p&gt;</content><category term="firefox"></category><category term="beta"></category><category term="flash"></category><category term="ubuntu"></category></entry><entry><title>Keyboard shortcuts for Pidgin menu items</title><link href="https://www.angelramboi.com/keyboard-shortcuts-for-pidgin-menu-items.html" rel="alternate"></link><published>2011-01-23T00:00:00+02:00</published><updated>2011-01-23T00:00:00+02:00</updated><author><name>Angel Ramboi</name></author><id>tag:www.angelramboi.com,2011-01-23:/keyboard-shortcuts-for-pidgin-menu-items.html</id><summary type="html">&lt;p&gt;Crouching config, hidden settings.&lt;/p&gt;</summary><content type="html">&lt;p&gt;If you migrated from Yahoo Messenger! to Pidgin you probably found out that some handy keyboard shortcuts are missing and no alternatives are defined by default.&lt;/p&gt;
+&lt;p&gt;And there you have it, Adobe Flash Player in Firefox 4 beta. (Please keep in mind that both Firefox and Flash need to be updated manually if installed this way)&lt;/p&gt;</content><category term="browser"></category><category term="firefox"></category><category term="beta"></category><category term="flash"></category><category term="ubuntu"></category></entry><entry><title>Keyboard shortcuts for Pidgin menu items</title><link href="https://www.angelramboi.com/keyboard-shortcuts-for-pidgin-menu-items.html" rel="alternate"></link><published>2011-01-23T00:00:00+01:00</published><updated>2011-01-23T00:00:00+01:00</updated><author><name>Angel Ramboi</name></author><id>tag:www.angelramboi.com,2011-01-23:/keyboard-shortcuts-for-pidgin-menu-items.html</id><summary type="html">&lt;p&gt;Crouching config, hidden settings.&lt;/p&gt;</summary><content type="html">&lt;p&gt;If you migrated from Yahoo Messenger! to Pidgin you probably found out that some handy keyboard shortcuts are missing and no alternatives are defined by default.&lt;/p&gt;
 &lt;p&gt;For example, I used to &lt;em&gt;Ctrl+h&lt;/em&gt; to hide/show my off-line buddies, but I didn't have a shortcut for that in Pidgin. I did not find a working solution on the &lt;em&gt;interwebs&lt;/em&gt;. Also tried a bunch of plugins, but they didn't cover the off-line buddies part.&lt;/p&gt;
 &lt;p&gt;So I decided to poke around in the Pidgin configuration folder &lt;code&gt;.purple&lt;/code&gt; and I found a file called &lt;code&gt;accels&lt;/code&gt;. I took a leap o faith, uncommented and edited this part:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;(gtk\_accel\_path &amp;quot;\&amp;lt;PurpleMain\&amp;gt;/Buddies/Show/Offline Buddies&amp;quot; &amp;quot;\&amp;lt;Control\&amp;gt;h&amp;quot;)
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;(gtk\_accel\_path &amp;quot;\&amp;lt;PurpleMain\&amp;gt;/Buddies/Show/Offline Buddies&amp;quot; &amp;quot;\&amp;lt;Control\&amp;gt;h&amp;quot;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Restarted Pidgin and it worked. There's a bunch of unused actions in that file so feel free to experiment. :)&lt;/p&gt;</content><category term="pidgin"></category><category term="ubuntu"></category><category term="windows"></category></entry><entry><title>Installing VirtualBox Guest Additions in Ubuntu Server</title><link href="https://www.angelramboi.com/installing-virtualbox-guest-additions-in-ubuntu-server.html" rel="alternate"></link><published>2011-01-06T00:00:00+02:00</published><updated>2011-01-06T00:00:00+02:00</updated><author><name>Angel Ramboi</name></author><id>tag:www.angelramboi.com,2011-01-06:/installing-virtualbox-guest-additions-in-ubuntu-server.html</id><summary type="html">&lt;p&gt;Getting shared folders to work for non-GUI virtual machines.&lt;/p&gt;</summary><content type="html">&lt;p&gt;If you need to use features like "Shared folders" in Virtualbox guests you have to install the Guest Additions. With Ubuntu desktop or Windows this is a breeze, but I couldn't find a unified guide on how to do it in a server environment.&lt;/p&gt;
+&lt;p&gt;Restarted Pidgin and it worked. There's a bunch of unused actions in that file so feel free to experiment. :)&lt;/p&gt;</content><category term="linux"></category><category term="pidgin"></category><category term="ubuntu"></category><category term="windows"></category></entry><entry><title>Installing VirtualBox Guest Additions in Ubuntu Server</title><link href="https://www.angelramboi.com/installing-virtualbox-guest-additions-in-ubuntu-server.html" rel="alternate"></link><published>2011-01-06T00:00:00+01:00</published><updated>2011-01-06T00:00:00+01:00</updated><author><name>Angel Ramboi</name></author><id>tag:www.angelramboi.com,2011-01-06:/installing-virtualbox-guest-additions-in-ubuntu-server.html</id><summary type="html">&lt;p&gt;Getting shared folders to work for non-GUI virtual machines.&lt;/p&gt;</summary><content type="html">&lt;p&gt;If you need to use features like "Shared folders" in Virtualbox guests you have to install the Guest Additions. With Ubuntu desktop or Windows this is a breeze, but I couldn't find a unified guide on how to do it in a server environment.&lt;/p&gt;
 &lt;p&gt;First you need to install these:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo apt-get install dkms
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo apt-get install dkms
 $ sudo apt-get install build-essential linux-headers-&lt;span class="sb"&gt;`&lt;/span&gt;uname -r&lt;span class="sb"&gt;`&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Make sure the VBoxGuestAdditions.iso is mounted.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="vbox-image" src="/images/2011/vbox.jpg" title="VirtualBox Additions"&gt;&lt;/p&gt;
 &lt;p&gt;Reboot system. Then do:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo mkdir /media/cdrom
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo mkdir /media/cdrom
 $ sudo mount /dev/sr0 /media/cdrom
 mount: block device /dev/sr0 is write-protected, mounting read-only
 $ &lt;span class="nb"&gt;cd&lt;/span&gt; /media/cdrom
 $ sudo ./VBoxLinuxAdditions-x86.run
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;If you have 64bit Ubuntu you should run the &lt;code&gt;VBoxLinuxAdditions-amd64.run&lt;/code&gt; file.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;UPDATE:&lt;/strong&gt; VirtualBox 4.0 merged the two files in one, &lt;code&gt;VBoxLinuxAdditions.run&lt;/code&gt;. Also the above image is not accurate for this version, use 'Install Guest Additions...' (Host+D) to load the virtual drive.&lt;/p&gt;
 &lt;p&gt;You should see something like this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Verifying archive integrity... All good.
-Uncompressing VirtualBox 3.2.12 Guest Additions for Linux........
-VirtualBox Guest Additions installer
-Removing installed version 3.2.10 of VirtualBox Guest Additions...
-Uninstalling old VirtualBox DKMS kernel modules ...done.
-Building the VirtualBox Guest Additions kernel modules
-Doing non-kernel setup of the Guest Additions ...done.
-You should restart your guest to make sure the new modules are actually used
-Installing the Window System drivers ...fail!
-(Could not find the X.Org or XFree86 Window System.)
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;Verifying archive integrity... All good.&lt;/span&gt;
+&lt;span class="err"&gt;Uncompressing VirtualBox 3.2.12 Guest Additions for Linux........&lt;/span&gt;
+&lt;span class="err"&gt;VirtualBox Guest Additions installer&lt;/span&gt;
+&lt;span class="err"&gt;Removing installed version 3.2.10 of VirtualBox Guest Additions...&lt;/span&gt;
+&lt;span class="err"&gt;Uninstalling old VirtualBox DKMS kernel modules ...done.&lt;/span&gt;
+&lt;span class="err"&gt;Building the VirtualBox Guest Additions kernel modules&lt;/span&gt;
+&lt;span class="err"&gt;Doing non-kernel setup of the Guest Additions ...done.&lt;/span&gt;
+&lt;span class="err"&gt;You should restart your guest to make sure the new modules are actually used&lt;/span&gt;
+&lt;span class="err"&gt;Installing the Window System drivers ...fail!&lt;/span&gt;
+&lt;span class="err"&gt;(Could not find the X.Org or XFree86 Window System.)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Don't worry about the windows system drivers error as you don't use them on Ubuntu server edition.&lt;/p&gt;
 &lt;p&gt;After reboot you will be able to mount your shared folders like so:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo mount -t vboxsf shared_folder_name /path/to/folder
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo mount -t vboxsf shared_folder_name /path/to/folder
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;To mount the shared folders automatically every time you boot, add  this line (without the &lt;code&gt;sudo&lt;/code&gt;) to the end of &lt;code&gt;/etc/init.d/rc.local&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;To uninstall the guest additions use:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo /opt/VBoxGuestAdditions*/uninstall.sh
-&lt;/pre&gt;&lt;/div&gt;</content><category term="ubuntu"></category><category term="server"></category><category term="virtualbox"></category></entry><entry><title>Youtube not working in Firefox 3.6</title><link href="https://www.angelramboi.com/youtube-not-working-in-firefox-36.html" rel="alternate"></link><published>2010-11-08T16:54:00+02:00</published><updated>2010-11-08T16:54:00+02:00</updated><author><name>Angel Ramboi</name></author><id>tag:www.angelramboi.com,2010-11-08:/youtube-not-working-in-firefox-36.html</id><summary type="html">&lt;p&gt;DOM storage disabled? No cookies for you then.&lt;/p&gt;</summary><content type="html">&lt;p&gt;For the past couple of days YouTube did not work properly when accessed via Firefox 3.6 (at least on my home PC).&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo /opt/VBoxGuestAdditions*/uninstall.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="linux"></category><category term="ubuntu"></category><category term="server"></category><category term="virtualbox"></category></entry><entry><title>Youtube not working in Firefox 3.6</title><link href="https://www.angelramboi.com/youtube-not-working-in-firefox-36.html" rel="alternate"></link><published>2010-11-08T16:54:00+01:00</published><updated>2010-11-08T16:54:00+01:00</updated><author><name>Angel Ramboi</name></author><id>tag:www.angelramboi.com,2010-11-08:/youtube-not-working-in-firefox-36.html</id><summary type="html">&lt;p&gt;DOM storage disabled? No cookies for you then.&lt;/p&gt;</summary><content type="html">&lt;p&gt;For the past couple of days YouTube did not work properly when accessed via Firefox 3.6 (at least on my home PC).&lt;/p&gt;
 &lt;p&gt;Here's how the front page looked:&lt;/p&gt;
 &lt;p&gt;&lt;img alt="youtube" src="/images/2011/youtube_no_thumbs.jpg" title="YouTube with no thumbs"&gt;&lt;/p&gt;
 &lt;p&gt;I wasn't able to access any videos or my account. Also Firebug showed about 10 JavaScript errors. But it worked OK in Google Chrome and Internet Explorer.&lt;/p&gt;
 &lt;p&gt;So what was the problem?!? It seems that YouTube is not satisfied with the normal cookie anymore and demands the DOM Storage feature to be enabled, which allows more data to be stored on the client side. I also read reports that Gmail has the same problem, but I was unable to reproduce this on my computer.&lt;/p&gt;
 &lt;p&gt;I managed to get it working by going in &lt;strong&gt;about:config&lt;/strong&gt; and changing the &lt;strong&gt;dom.storage.enabled&lt;/strong&gt; property to &lt;strong&gt;true&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;The weird part is that YouTube works in Internet Explorer 8 even with DOM Storage disabled.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;UPDATE&lt;/strong&gt;: The new version of Twitter doesn't work either if DOM Storage is disabled.&lt;/p&gt;</content><category term="firefox"></category><category term="youtube"></category><category term="dom"></category><category term="storage"></category></entry><entry><title>Different profiles for Firefox 3.6 and 4 beta on Windows</title><link href="https://www.angelramboi.com/different-profiles-for-firefox-36-and-4-beta-on-windows.html" rel="alternate"></link><published>2010-11-08T13:14:00+02:00</published><updated>2010-11-08T13:14:00+02:00</updated><author><name>Angel Ramboi</name></author><id>tag:www.angelramboi.com,2010-11-08:/different-profiles-for-firefox-36-and-4-beta-on-windows.html</id><summary type="html">&lt;p&gt;This is one of those case when I miss a sane CLI in Windows.&lt;/p&gt;</summary><content type="html">&lt;p&gt;When installing Mozilla Minefield (Firefox daily builds) on Ubuntu, it
+&lt;p&gt;&lt;strong&gt;UPDATE&lt;/strong&gt;: The new version of Twitter doesn't work either if DOM Storage is disabled.&lt;/p&gt;</content><category term="browser"></category><category term="firefox"></category><category term="youtube"></category><category term="dom"></category><category term="storage"></category></entry><entry><title>Different profiles for Firefox 3.6 and 4 beta on Windows</title><link href="https://www.angelramboi.com/different-profiles-for-firefox-36-and-4-beta-on-windows.html" rel="alternate"></link><published>2010-11-08T13:14:00+01:00</published><updated>2010-11-08T13:14:00+01:00</updated><author><name>Angel Ramboi</name></author><id>tag:www.angelramboi.com,2010-11-08:/different-profiles-for-firefox-36-and-4-beta-on-windows.html</id><summary type="html">&lt;p&gt;This is one of those case when I miss a sane CLI in Windows.&lt;/p&gt;</summary><content type="html">&lt;p&gt;When installing Mozilla Minefield (Firefox daily builds) on Ubuntu, it
 automatically creates a new profile and copies your current profile
 there. But on Windows this thing doesn't happen.&lt;/p&gt;
 &lt;p&gt;When installing Firefox 4b6 on Windows 7 the same profile as the regular
@@ -355,8 +355,8 @@ use add-ons. Some of these problems are:&lt;/p&gt;
 additional profile. To do this you must access the Firefox profile
 manager. Go to your Firefox 3.6 shortcut properties and add "-P" to the
 Target field. It should look like this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;quot;C:\Program Files (x86)\Mozilla Firefox\firefox.exe&amp;quot; -P
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;&amp;quot;C:\Program Files (x86)\Mozilla Firefox\firefox.exe&amp;quot; -P&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Save and open Firefox with that shortcut. The profile manager windows
@@ -366,16 +366,16 @@ should appear (image bellow), click on Create Profile and create the
 &lt;p&gt;To make the shortcut access the profile directly without the profile
 manager window you have to edit once more the Target of the shortcut
 like so:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;quot;C:\Program Files (x86)\Mozilla Firefox\firefox.exe&amp;quot; -P default
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;&amp;quot;C:\Program Files (x86)\Mozilla Firefox\firefox.exe&amp;quot; -P default&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Also edit the Firefox beta shortcut like so:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;quot;C:\Program Files (x86)\Mozilla Firefox 4.0 Beta 6\firefox.exe&amp;quot; -P beta
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;&amp;quot;C:\Program Files (x86)\Mozilla Firefox 4.0 Beta 6\firefox.exe&amp;quot; -P beta&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;That's it. Happy testing.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;UPDATE&lt;/strong&gt;: Another way to solve this is to install the &lt;a href="http://portableapps.com/apps/internet/firefox_portable/test" title="Firefox portable"&gt;portable
-version of Firefox beta&lt;/a&gt;.&lt;/p&gt;</content><category term="firefox"></category><category term="profiles"></category><category term="windows"></category><category term="beta"></category></entry><entry><title>Hello world!</title><link href="https://www.angelramboi.com/hello-world.html" rel="alternate"></link><published>2010-11-08T00:00:00+02:00</published><updated>2010-11-08T00:00:00+02:00</updated><author><name>Angel Ramboi</name></author><id>tag:www.angelramboi.com,2010-11-08:/hello-world.html</id><summary type="html">&lt;p&gt;Starting this damn thing.&lt;/p&gt;</summary><content type="html">&lt;p&gt;I thought about starting this blog for a while now, just didn’t have the time and/or inspiration to actually do it.&lt;/p&gt;
-&lt;p&gt;Anyway, this is going to be my place to post news about projects I’m working on, tech rants and other stuff. I just hope it will not be boring.&lt;/p&gt;</content></entry></feed>
+version of Firefox beta&lt;/a&gt;.&lt;/p&gt;</content><category term="browser"></category><category term="firefox"></category><category term="profiles"></category><category term="windows"></category><category term="beta"></category></entry><entry><title>Hello world!</title><link href="https://www.angelramboi.com/hello-world.html" rel="alternate"></link><published>2010-11-08T00:00:00+01:00</published><updated>2010-11-08T00:00:00+01:00</updated><author><name>Angel Ramboi</name></author><id>tag:www.angelramboi.com,2010-11-08:/hello-world.html</id><summary type="html">&lt;p&gt;Starting this damn thing.&lt;/p&gt;</summary><content type="html">&lt;p&gt;I thought about starting this blog for a while now, just didn’t have the time and/or inspiration to actually do it.&lt;/p&gt;
+&lt;p&gt;Anyway, this is going to be my place to post news about projects I’m working on, tech rants and other stuff. I just hope it will not be boring.&lt;/p&gt;</content><category term="news"></category></entry></feed>

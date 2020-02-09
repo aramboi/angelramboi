@@ -32,7 +32,7 @@
                 <div class="cover-body">
                     <header class="header">
                         <hgroup>
-                            <a href="https://www.angelramboi.com"><img class="avatar" src="/images/me.jpg"><a>
+                            <a href="https://www.angelramboi.com"><img class="avatar" src="/images/profile-pic.jpg"><a>
                             <h1 class="brand-main"><a href="https://www.angelramboi.com">Angel Ramboi</a></h1>
                             <p class="tagline">coder, gamer, geek</p>
                                 <p class="links"><a href="/archives.html">Archive</a></p>
@@ -66,33 +66,33 @@
             </section>
             <p>I decided to take a leap of faith and install Gnome3 and gnome-shell on my Ubuntu box.</p>
 <p>First the installation:</p>
-<div class="highlight"><pre><span></span>$ sudo add-apt-repository ppa:gnome3-team/gnome3
+<div class="highlight"><pre><span></span><code>$ sudo add-apt-repository ppa:gnome3-team/gnome3
 $ sudo apt-get update
 $ sudo apt-get dist-upgrade
 $ sudo apt-get install gnome-shell
-</pre></div>
+</code></pre></div>
 
 
 <p>Some fixes after restart:</p>
-<div class="highlight"><pre><span></span>$ sudo apt-get purge unity scrollbar* gnome-accessibility-themes
+<div class="highlight"><pre><span></span><code>$ sudo apt-get purge unity scrollbar* gnome-accessibility-themes
 $ sudo apt-get install gnome-themes-standard
-</pre></div>
+</code></pre></div>
 
 
 <p>Extra installs:</p>
-<div class="highlight"><pre><span></span>$ sudo apt-get install gnome-tweak-tool dconf-tools gnome-shell-extensions-common gnome-shell-extensions-user-theme
-</pre></div>
+<div class="highlight"><pre><span></span><code>$ sudo apt-get install gnome-tweak-tool dconf-tools gnome-shell-extensions-common gnome-shell-extensions-user-theme
+</code></pre></div>
 
 
 <p>Edit startup applications (the shortcut is missing from the applications list):</p>
-<div class="highlight"><pre><span></span>$ gnome-session-properties
-</pre></div>
+<div class="highlight"><pre><span></span><code>$ gnome-session-properties
+</code></pre></div>
 
 
 <p>If you want to revert everything:</p>
-<div class="highlight"><pre><span></span>$ sudo apt-get install ppa-purge
+<div class="highlight"><pre><span></span><code>$ sudo apt-get install ppa-purge
 $ sudo ppa-purge ppa:gnome3-team/gnome3
-</pre></div>
+</code></pre></div>
 
 
 <p>Nice features I discovered so far:</p>

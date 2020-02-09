@@ -32,7 +32,7 @@
                 <div class="cover-body">
                     <header class="header">
                         <hgroup>
-                            <a href="https://www.angelramboi.com"><img class="avatar" src="/images/me.jpg"><a>
+                            <a href="https://www.angelramboi.com"><img class="avatar" src="/images/profile-pic.jpg"><a>
                             <h1 class="brand-main"><a href="https://www.angelramboi.com">Angel Ramboi</a></h1>
                             <p class="tagline">coder, gamer, geek</p>
                                 <p class="links"><a href="/archives.html">Archive</a></p>
@@ -68,19 +68,19 @@
             <p>Using @property is nice and peachy when you use the instance of the class, but what if you need to get that property without instantiating the class.</p>
 <p>You can do that with @classmethod (you'd say), but I want to use it as an attribute not as a method.</p>
 <p>Without further ado, the <em>hack</em>:</p>
-<div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">classproperty</span><span class="p">(</span><span class="nx">property</span><span class="p">)</span><span class="o">:</span>
-    <span class="nx">def</span> <span class="nx">__get__</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span> <span class="nx">instance</span><span class="p">,</span> <span class="nx">cls</span><span class="p">)</span><span class="o">:</span>
-        <span class="k">return</span> <span class="nx">classmethod</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">fget</span><span class="p">).</span><span class="nx">__get__</span><span class="p">(</span><span class="nx">instance</span><span class="p">,</span> <span class="nx">cls</span><span class="p">)()</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="n">classproperty</span><span class="p">(</span><span class="n">property</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">__get__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">instance</span><span class="p">,</span><span class="w"> </span><span class="n">cls</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">classmethod</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">fget</span><span class="p">).</span><span class="n">__get__</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span><span class="w"> </span><span class="n">cls</span><span class="p">)()</span><span class="w"></span>
 
-<span class="kr">class</span> <span class="nx">Foo</span><span class="p">(</span><span class="nx">object</span><span class="p">)</span><span class="o">:</span>
-    <span class="nx">foobar</span> <span class="o">=</span> <span class="s1">&#39;This ... is ... FOOBAR!!!&#39;</span>
+<span class="k">class</span><span class="w"> </span><span class="n">Foo</span><span class="p">(</span><span class="k">object</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">foobar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;This ... is ... FOOBAR!!!&#39;</span><span class="w"></span>
 
-    <span class="kd">@classproperty</span>
-    <span class="nx">def</span> <span class="nx">bar</span><span class="p">(</span><span class="nx">self</span><span class="p">)</span><span class="o">:</span>
-        <span class="k">return</span> <span class="nx">self</span><span class="p">.</span><span class="nx">foobar</span>
+<span class="w">    </span><span class="nv">@classproperty</span><span class="w"></span>
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">bar</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">foobar</span><span class="w"></span>
 
-<span class="nx">print</span> <span class="nx">Foo</span><span class="p">.</span><span class="nx">bar</span>
-</pre></div>
+<span class="k">print</span><span class="w"> </span><span class="n">Foo</span><span class="p">.</span><span class="n">bar</span><span class="w"></span>
+</code></pre></div>
             <a href="#" class="go-top">Go Top</a>
 <footer class="footer">
     <p>&copy; Angel Ramboi &ndash;
