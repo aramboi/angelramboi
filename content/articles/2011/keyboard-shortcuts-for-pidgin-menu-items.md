@@ -1,8 +1,8 @@
-Title: Keyboard shortcuts for Pidgin menu items
+Title: Enable keyboard shortcuts for Pidgin menu items
 Date: 2011-01-23
-Category: linux
+Category: random
 Tags: pidgin, ubuntu, windows
-Summary: Crouching config, hidden settings.
+Description: Crouching config, hidden settings.
 
 If you migrated from Yahoo Messenger! to Pidgin you probably found out that some handy keyboard shortcuts are missing and no alternatives are defined by default.
 

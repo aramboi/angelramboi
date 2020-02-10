@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <title>Angel Ramboi's Blog // coder, gamer, geek</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charset="utf-8" />
+        <link href="https://www.angelramboi.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Angel Ramboi's Blog - Full Atom Feed" />
+        <link href="https://www.angelramboi.com/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="Angel Ramboi's Blog - Categories Atom Feed" />
+        <!-- twitter card metadata -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://secure.gravatar.com/avatar/f03910605400a038f8a874cb3e5dc10b?s=256">
+<meta name="twitter:site" content="@angelramboi">
+<meta name="twitter:title" content="Set up different profiles for Firefox 3.6 and 4 beta on Windows">
+<meta name="twitter:description" content="This is one of those cases when I miss a sane CLI in Windows.">
+        <!-- OG Tags -->
+<meta property="og:url" content="https://www.angelramboi.com/2010/11/set-up-different-profiles-for-firefox-36-and-4-beta-on-windows/"/>
+<meta property="og:title" content="Angel Ramboi's Blog | Set up different profiles for Firefox 3.6 and 4 beta on Windows" />
+<meta property="og:description" content="This is one of those cases when I miss a sane CLI in Windows." />
+        <!-- favicon -->
+        <link rel="icon" type="image/jpg" href="https://www.angelramboi.com/images/profile-sm.jpg">
+        <!-- moment.js for date formatting -->
+        <script src="https://www.angelramboi.com/theme/js/moment.js"></script>
+        <!-- css -->
+        <link rel="stylesheet" type="text/css" href="https://www.angelramboi.com/theme/css/main.css" />
+		<script>
+			
+                /*! grunt-grunticon Stylesheet Loader - v2.1.2 | https://github.com/filamentgroup/grunticon | (c) 2015 Scott Jehl, Filament Group, Inc. | MIT license. */
+    
+    (function(e){function t(t,n,r,o){"use strict";function a(){for(var e,n=0;u.length>n;n++)u[n].href&&u[n].href.indexOf(t)>-1&&(e=!0);e?i.media=r||"all":setTimeout(a)}var i=e.document.createElement("link"),l=n||e.document.getElementsByTagName("script")[0],u=e.document.styleSheets;return i.rel="stylesheet",i.href=t,i.media="only x",i.onload=o||null,l.parentNode.insertBefore(i,l),a(),i}var n=function(r,o){"use strict";if(r&&3===r.length){var a=e.navigator,i=e.Image,l=!(!document.createElementNS||!document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||e.opera&&-1===a.userAgent.indexOf("Chrome")||-1!==a.userAgent.indexOf("Series40")),u=new i;u.onerror=function(){n.method="png",n.href=r[2],t(r[2])},u.onload=function(){var e=1===u.width&&1===u.height,a=r[e&&l?0:e?1:2];n.method=e&&l?"svg":e?"datapng":"png",n.href=a,t(a,null,null,o)},u.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==",document.documentElement.className+=" grunticon"}};n.loadCSS=t,e.grunticon=n})(this);(function(e,t){"use strict";var n=t.document,r="grunticon:",o=function(e){if(n.attachEvent?"complete"===n.readyState:"loading"!==n.readyState)e();else{var t=!1;n.addEventListener("readystatechange",function(){t||(t=!0,e())},!1)}},a=function(e){return t.document.querySelector('link[href$="'+e+'"]')},c=function(e){var t,n,o,a,c,i,u={};if(t=e.sheet,!t)return u;n=t.cssRules?t.cssRules:t.rules;for(var l=0;n.length>l;l++)o=n[l].cssText,a=r+n[l].selectorText,c=o.split(");")[0].match(/US\-ASCII\,([^"']+)/),c&&c[1]&&(i=decodeURIComponent(c[1]),u[a]=i);return u},i=function(e){var t,o,a;o="data-grunticon-embed";for(var c in e)if(a=c.slice(r.length),t=n.querySelectorAll(a+"["+o+"]"),t.length)for(var i=0;t.length>i;i++)t[i].innerHTML=e[c],t[i].style.backgroundImage="none",t[i].removeAttribute(o);return t},u=function(t){"svg"===e.method&&o(function(){i(c(a(e.href))),"function"==typeof t&&t()})};e.embedIcons=i,e.getCSS=a,e.getIcons=c,e.ready=o,e.svgLoadedCallback=u,e.embedSVG=u})(grunticon,this);
+                
+                grunticon(["https://www.angelramboi.com/theme/css/icons.data.svg.css", "https://www.angelramboi.com/theme/css/icons.data.png.css", "https://www.angelramboi.com/theme/css/icons.fallback.css"]);
+            </script>
+        <noscript><link href="https://www.angelramboi.com/theme/css/icons.fallback.css" rel="stylesheet"></noscript>
+        <!-- menu toggle javascript -->
+        <script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", initMenu);
+            
+            function initMenu(){
+                var menu = document.getElementById("menu");
+                var menulink = document.getElementById("menu-link");
+                menulink.addEventListener("click", function toggleMenu(){
+                        window.event.preventDefault();
+                        menulink.classList.toggle('active');
+                        menu.classList.toggle('active');              
+                    });
+            };
+        </script>
+
+    <meta name="description" content="This is one of those cases when I miss a sane CLI in Windows." />
+
+    <meta name="tags" content="firefox" />
+    <meta name="tags" content="windows" />
+
+</head>
+<body>
+    <div role="banner" id="masthead">
+        <header>
+            <a href="/"><img src="https://secure.gravatar.com/avatar/f03910605400a038f8a874cb3e5dc10b?s=256" alt="Angel's Blog" class="gravatar"></a>
+            <a href="#menu" id="menu-link">menu</a>
+            <nav id="menu">
+                <ul>
+                        <li><a href="https://www.angelramboi.com/about/">about</a></li>
+                        <li><a href="/categories">categories</a></li>
+                </ul>
+                <div class="icons">
+                    <a href="https://github.com/aramboi" target="_blank"><div class="icon-github icon"></div></a>
+                    <a href="https://twitter.com/angelramboi" target="_blank"><div class="icon-twitter icon"></div></a>
+                </div>
+            </nav>
+        </header>
+    </div>
+        <div class="page" role="main">
+  <div class="article" role="article">
+    <article>
+        <footer>
+            <a name="top"></a>
+            <p>
+              <time datetime=" 2010-11-16 00:00:00+01:00">
+                <script>document.write(moment('2010-11-16 00:00:00+01:00').format('LL'));</script>
+              </time>
+            </p>
+        </footer>
+        <header>
+          <h2>
+            Set up different profiles for Firefox 3.6 and 4 beta on Windows
+          </h2>
+        </header>
+      <div class="content">
+         <p>When installing Mozilla Minefield (Firefox daily builds) on Ubuntu, it
+automatically creates a new profile and copies your current profile
+there. But on Windows this thing doesn't happen.</p>
+<p>When installing Firefox 4b6 on Windows 7 the same profile as the regular
+installation is used. This can cause a lot of problems, specially if you
+use add-ons. Some of these problems are:</p>
+<ul>
+<li>Most of the add-ons are disabled. Partial solution is to install the
+    <a href="https://addons.mozilla.org/en-US/firefox/addon/15003/" title="Add-on Compatibility Reporter">Add-on Compatibility Reporter</a></li>
+<li>Sync add-on is disabled because it is build in Firefox now.
+    Recommendation: do not sync your stable release with any beta/daily
+    builds. I did this and after a while I got an error from the stable
+    release that said I should update Sync, but there was no update
+    available. So Sync didn't work for a while. This happened to me with
+    Minefield b7.</li>
+<li>The biggest problem is Firebug. The beta release (1.6) that works
+    with Firefox 4 is buggy, becomes unusable sometimes and crashes the
+    browser.</li>
+</ul>
+<p>The solution is pretty straight forward. First we must create an
+additional profile. To do this you must access the Firefox profile
+manager. Go to your Firefox 3.6 shortcut properties and add "-P" to the
+Target field. It should look like this:</p>
+<div class="highlight"><pre><span></span><code><span class="err">&quot;C:\Program Files (x86)\Mozilla Firefox\firefox.exe&quot; -P</span>
+</code></pre></div>
+
+
+<p>Save and open Firefox with that shortcut. The profile manager windows
+should appear (image bellow), click on Create Profile and create the
+"beta" profile.</p>
+<p><img alt="Firefox Profile Manager" src="/images/2011/firefox-profilemanager.jpg" title="Firefox profile manager"></p>
+<p>To make the shortcut access the profile directly without the profile
+manager window you have to edit once more the Target of the shortcut
+like so:</p>
+<div class="highlight"><pre><span></span><code><span class="err">&quot;C:\Program Files (x86)\Mozilla Firefox\firefox.exe&quot; -P default</span>
+</code></pre></div>
+
+
+<p>Also edit the Firefox beta shortcut like so:</p>
+<div class="highlight"><pre><span></span><code><span class="err">&quot;C:\Program Files (x86)\Mozilla Firefox 4.0 Beta 6\firefox.exe&quot; -P beta</span>
+</code></pre></div>
+
+
+<p>That's it. Happy testing.</p>
+<p><strong>UPDATE</strong>: Another way to solve this is to install the <a href="http://portableapps.com/apps/internet/firefox_portable/test" title="Firefox portable">portable
+version of Firefox beta</a>.</p>
+      </div>
+      <div class="back-to-top">
+          <a href="#top">back to top</a>
+      </div>
+    </article>
+  </div>
+<!-- end article -->
+                <footer>
+                    <p>© <script>document.write(moment().format('YYYY'));</script> Angel Ramboi</p>
+                </footer>
+        </div>
+</body>
+</html>

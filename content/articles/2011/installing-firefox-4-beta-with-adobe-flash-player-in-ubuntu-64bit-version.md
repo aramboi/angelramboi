@@ -1,8 +1,8 @@
-Title: Installing Firefox 4 beta with Adobe Flash Player on Ubuntu 64bit
+Title: Install Firefox 4 beta with Adobe Flash Player on Ubuntu 64bit
 Date: 2011-01-23
-Category: browser
-Tags: firefox, beta, flash, ubuntu
-Summary: Hint - you won't find it in the normal release channels.
+Category: guides
+Tags: firefox, ubuntu
+Description: Hint - you won't find it in the normal release channels.
 
 You can get the latest Firefox build from the [launchpad ppa repositories][1], but I found that the periodical beta release on Mozilla's website tends to be more stable and usable than the daily builds.
 

@@ -1,8 +1,8 @@
-Title: Installing VirtualBox Guest Additions in Ubuntu Server
+Title: Install VirtualBox Guest Additions in Ubuntu Server
 Date: 2011-01-06
-Category: linux
-Tags: ubuntu, server, virtualbox
-Summary: Getting shared folders to work for non-GUI virtual machines.
+Category: guides
+Tags: ubuntu, virtualbox
+Description: Getting shared folders to work for non-GUI virtual machines.
 
 If you need to use features like "Shared folders" in Virtualbox guests you have to install the Guest Additions. With Ubuntu desktop or Windows this is a breeze, but I couldn't find a unified guide on how to do it in a server environment.
 

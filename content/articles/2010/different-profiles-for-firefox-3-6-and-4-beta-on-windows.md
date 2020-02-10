@@ -1,8 +1,8 @@
-Title: Different profiles for Firefox 3.6 and 4 beta on Windows
-Date: 2010-11-08 13:14
-Category: browser
-Tags: firefox, profiles, windows, beta
-Summary: This is one of those case when I miss a sane CLI in Windows.
+Title: Set up different profiles for Firefox 3.6 and 4 beta on Windows
+Date: 2010-11-16
+Category: guides
+Tags: firefox, windows
+Description: This is one of those cases when I miss a sane CLI in Windows.
 
 When installing Mozilla Minefield (Firefox daily builds) on Ubuntu, it
 automatically creates a new profile and copies your current profile
@@ -29,8 +29,9 @@ additional profile. To do this you must access the Firefox profile
 manager. Go to your Firefox 3.6 shortcut properties and add "-P" to the
 Target field. It should look like this:
 
-    "C:\Program Files (x86)\Mozilla Firefox\firefox.exe" -P
-
+```
+"C:\Program Files (x86)\Mozilla Firefox\firefox.exe" -P
+```
 
 Save and open Firefox with that shortcut. The profile manager windows
 should appear (image bellow), click on Create Profile and create the
@@ -42,11 +43,15 @@ To make the shortcut access the profile directly without the profile
 manager window you have to edit once more the Target of the shortcut
 like so:
 
-    "C:\Program Files (x86)\Mozilla Firefox\firefox.exe" -P default
+```
+"C:\Program Files (x86)\Mozilla Firefox\firefox.exe" -P default
+```
 
 Also edit the Firefox beta shortcut like so:
 
-    "C:\Program Files (x86)\Mozilla Firefox 4.0 Beta 6\firefox.exe" -P beta
+```
+"C:\Program Files (x86)\Mozilla Firefox 4.0 Beta 6\firefox.exe" -P beta
+```
 
 That's it. Happy testing.
 

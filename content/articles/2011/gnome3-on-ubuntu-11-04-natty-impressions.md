@@ -1,8 +1,8 @@
-Title: Gnome3 on Ubuntu 11.04 Natty (impressions)
-Date: 2011-06-15 18:31
-Category: linux
+Title: Install Gnome3 on Ubuntu 11.04 Natty (impressions)
+Date: 2011-06-15
+Category: guides
 Tags: gnome3, ubuntu
-Summary: Because Unity sucks and I got bored with Gnome 2.
+Description: Because Unity sucks and I got bored with Gnome 2.
 
 I decided to take a leap of faith and install Gnome3 and gnome-shell on my Ubuntu box.
 

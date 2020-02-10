@@ -1,9 +1,9 @@
-Title: Turning a RaspberryPi into a simple NAS
+Title: Turn a RaspberryPi into a simple NAS
 Date: 2015-08-19
-Category: linux
-Slug: turning-raspberrypi-into-a-simple-nas-server
-Tags: raspberrypi, nas, samba
-Summary: This is my step-by-step guide on how to setup a RaspberryPi with an external USB HDD as a network accessed storage (aka NAS)
+Category: guides
+Slug: turn-raspberrypi-into-a-simple-nas-server
+Tags: raspberrypi, nas
+Description: This is my step-by-step guide on how to setup a RaspberryPi with an external USB HDD as a network accessed storage (NAS)
 
 This is based on a fresh install of Rasbian downloaded from the [official site][1] and using a NTFS formated external USB drive.
 
@@ -104,9 +104,9 @@ $ sudo smbpasswd -a <USERNAME>
 
 And you're done. You should be able to find the server on the local network now and connect to it with the credentials provided above.
 
-## Extras
+### Extras
 
-### SD card space
+#### SD card space
 
 Saves ~1GB disk space on the system card:
 
@@ -117,7 +117,7 @@ $ sudo apt-get remove --auto-remove --purge libx11-.*
 $ sudo apt-get autoremove --purge $(deborphan)
 ```
 
-### Restricted folders
+#### Restricted folders
 
 Here is a sample Samba config for a folder restricted to a certain user, path and read only:
 
@@ -135,7 +135,7 @@ Here is a sample Samba config for a folder restricted to a certain user, path an
   read only = yes
 ```
 
-### Power savings
+#### Power savings
 
 If you want to spin-down your external hard drive when it's inactive, this should work on most drives:
 

@@ -2,6 +2,7 @@
 cache
 venv
 .DS_Store
-theme/
 *.pid
 .vscode/
+themes
+plugins
