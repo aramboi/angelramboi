@@ -3,6 +3,10 @@ cache
 venv
 .DS_Store
 *.pid
+devserver.sh
+
 .vscode/
-themes
+themes/
 plugins
+output/
+drafts/

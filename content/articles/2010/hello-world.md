@@ -1,6 +1,6 @@
 Title: Hello world!
 Date: 2010-11-01
-Category: news
+Category: articles
 Description: Starting this damn thing.
 
 I thought about starting this blog for a while now, just didn’t have the time and/or inspiration to actually do it.

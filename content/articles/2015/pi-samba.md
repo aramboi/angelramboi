@@ -1,6 +1,6 @@
 Title: Turn a RaspberryPi into a simple NAS
 Date: 2015-08-19
-Category: guides
+Category: articles
 Slug: turn-raspberrypi-into-a-simple-nas-server
 Tags: raspberrypi, nas
 Description: This is my step-by-step guide on how to setup a RaspberryPi with an external USB HDD as a network accessed storage (NAS)

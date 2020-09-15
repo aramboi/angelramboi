@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <title>Deploying your Python apps using Dokku and DigitalOcean</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charset="utf-8" />
+        <link href="https://www.angelramboi.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Angel Ramboi's Blog - Full Atom Feed" />
+        <link href="https://www.angelramboi.com/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="Angel Ramboi's Blog - Categories Atom Feed" />
+        <!-- twitter card metadata -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://secure.gravatar.com/avatar/f03910605400a038f8a874cb3e5dc10b?s=256">
+<meta name="twitter:site" content="@angelramboi">
+<meta name="twitter:title" content="Deploying your Python apps using Dokku and DigitalOcean">
+<meta name="twitter:description" content="Getting your projects live on a personal VM instance can be tedious, but does it have to be? Today I'll show you how to set up your very own PaaS in less than half an hour and deploy in seconds.">
+        <!-- OG Tags -->
+<meta property="og:url" content="https://www.angelramboi.com/2019/02/deploy-apps-with-dokku-digital-ocean/"/>
+<meta property="og:title" content="Angel Ramboi's Blog | Deploying your Python apps using Dokku and DigitalOcean" />
+<meta property="og:description" content="Getting your projects live on a personal VM instance can be tedious, but does it have to be? Today I'll show you how to set up your very own PaaS in less than half an hour and deploy in seconds." />
+        <!-- favicon -->
+        <link rel="icon" type="image/jpg" href="https://www.angelramboi.com/images/profile-sm.jpg">
+        <!-- moment.js for date formatting -->
+        <script src="https://www.angelramboi.com/theme/js/moment.js"></script>
+        <!-- css -->
+        <link rel="stylesheet" type="text/css" href="https://www.angelramboi.com/theme/css/main.css" />
+		<script>
+			
+                /*! grunt-grunticon Stylesheet Loader - v2.1.2 | https://github.com/filamentgroup/grunticon | (c) 2015 Scott Jehl, Filament Group, Inc. | MIT license. */
+    
+    (function(e){function t(t,n,r,o){"use strict";function a(){for(var e,n=0;u.length>n;n++)u[n].href&&u[n].href.indexOf(t)>-1&&(e=!0);e?i.media=r||"all":setTimeout(a)}var i=e.document.createElement("link"),l=n||e.document.getElementsByTagName("script")[0],u=e.document.styleSheets;return i.rel="stylesheet",i.href=t,i.media="only x",i.onload=o||null,l.parentNode.insertBefore(i,l),a(),i}var n=function(r,o){"use strict";if(r&&3===r.length){var a=e.navigator,i=e.Image,l=!(!document.createElementNS||!document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||e.opera&&-1===a.userAgent.indexOf("Chrome")||-1!==a.userAgent.indexOf("Series40")),u=new i;u.onerror=function(){n.method="png",n.href=r[2],t(r[2])},u.onload=function(){var e=1===u.width&&1===u.height,a=r[e&&l?0:e?1:2];n.method=e&&l?"svg":e?"datapng":"png",n.href=a,t(a,null,null,o)},u.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==",document.documentElement.className+=" grunticon"}};n.loadCSS=t,e.grunticon=n})(this);(function(e,t){"use strict";var n=t.document,r="grunticon:",o=function(e){if(n.attachEvent?"complete"===n.readyState:"loading"!==n.readyState)e();else{var t=!1;n.addEventListener("readystatechange",function(){t||(t=!0,e())},!1)}},a=function(e){return t.document.querySelector('link[href$="'+e+'"]')},c=function(e){var t,n,o,a,c,i,u={};if(t=e.sheet,!t)return u;n=t.cssRules?t.cssRules:t.rules;for(var l=0;n.length>l;l++)o=n[l].cssText,a=r+n[l].selectorText,c=o.split(");")[0].match(/US\-ASCII\,([^"']+)/),c&&c[1]&&(i=decodeURIComponent(c[1]),u[a]=i);return u},i=function(e){var t,o,a;o="data-grunticon-embed";for(var c in e)if(a=c.slice(r.length),t=n.querySelectorAll(a+"["+o+"]"),t.length)for(var i=0;t.length>i;i++)t[i].innerHTML=e[c],t[i].style.backgroundImage="none",t[i].removeAttribute(o);return t},u=function(t){"svg"===e.method&&o(function(){i(c(a(e.href))),"function"==typeof t&&t()})};e.embedIcons=i,e.getCSS=a,e.getIcons=c,e.ready=o,e.svgLoadedCallback=u,e.embedSVG=u})(grunticon,this);
+                
+                grunticon(["https://www.angelramboi.com/theme/css/icons.data.svg.css", "https://www.angelramboi.com/theme/css/icons.data.png.css", "https://www.angelramboi.com/theme/css/icons.fallback.css"]);
+            </script>
+        <noscript><link href="https://www.angelramboi.com/theme/css/icons.fallback.css" rel="stylesheet"></noscript>
+        <!-- menu toggle javascript -->
+        <script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", initMenu);
+            
+            function initMenu(){
+                var menu = document.getElementById("menu");
+                var menulink = document.getElementById("menu-link");
+                menulink.addEventListener("click", function toggleMenu(){
+                        window.event.preventDefault();
+                        menulink.classList.toggle('active');
+                        menu.classList.toggle('active');              
+                    });
+            };
+        </script>
+
+    <meta name="description" content="Getting your projects live on a personal VM instance can be tedious, but does it have to be? Today I'll show you how to set up your very own PaaS in less than half an hour and deploy in seconds." />
+
+    <meta name="tags" content="dokku" />
+    <meta name="tags" content="docker" />
+    <meta name="tags" content="devops" />
+
+</head>
+<body>
+    <div role="banner" id="masthead">
+        <header>
+            <a href="/"><img src="https://secure.gravatar.com/avatar/f03910605400a038f8a874cb3e5dc10b?s=256" alt="Angel's Blog" class="gravatar"></a>
+            <a href="#menu" id="menu-link">menu</a>
+            <nav id="menu">
+                <ul>
+                        <li><a href="https://www.angelramboi.com/about/">About me</a></li>
+                </ul>
+                <div class="icons">
+                    <a href="https://github.com/aramboi" target="_blank"><div class="icon-github icon"></div></a>
+                    <a href="https://twitter.com/angelramboi" target="_blank"><div class="icon-twitter icon"></div></a>
+                    <a href="https://www.linkedin.com/in/aramboi" target="_blank"><div class="icon-linkedin icon"></div></a>
+                </div>
+            </nav>
+        </header>
+    </div>
+        <div class="page" role="main">
+  <div class="article" role="article">
+    <article>
+        <footer>
+            <a name="top"></a>
+            <p>
+              <time datetime=" 2019-02-26 00:00:00+01:00">
+                <script>document.write(moment('2019-02-26 00:00:00+01:00').format('LL'));</script>
+              </time>
+            </p>
+        </footer>
+        <header>
+          <h2>
+            Deploying your Python apps using Dokku and DigitalOcean
+          </h2>
+        </header>
+      <div class="content">
+         <p>During the February 2010 Python Meetup in Cluj, I gave this talk about how to deploy your very own PaaS on a <a href="https://m.do.co/c/be156fd97c45">Digital Ocean</a> droplet using <a href="https://github.com/dokku/dokku/">Dokku</a>. Below is a summary of the talk with some extras sprinkled here and there.</p>
+<p>So what is <strong>Dokku</strong>? The short answer could very well be: <strong>A Docker powered "poor mans" mini Heroku bash script</strong>. The longer version, as described on DigitalOcean's site, would be:</p>
+<blockquote>
+<p>Dokku is a Platform as a Service solution that enables users to deploy and configure an application to a production environment on a separate server. It uses Docker, a Linux container system, to manage its deployments, and allows users to deploy to a remote server.</p>
+</blockquote>
+<p>All this fancy talk means that Dokku automates any the Docker containers (on a single server) you may need in order to make your applications available to the world. By default Dokku uses the <a href="https://hub.docker.com/r/gliderlabs/herokuish">herokuish docker image</a> (which emulates Heroku build and runtime tasks) and configures a Nginx container to take care of serving the right content for the right virtual host or port. By allowing Dokku to take over these configuration tasks you are just one <code>git push dokku master</code> away from deploying your app to the server.</p>
+<p>Of course, there is more to an application than just the containers that run the app and the web server. Dokku takes care of that using a wide offering of plugins that let you customize your setup anyway you like. You want a database just <code>dokku plugin:install https://github.com/dokku/dokku-postgres.git postgres</code>, you need caching capabilities <code>dokku plugin:install https://github.com/dokku/dokku-memcached.git memcached</code>, etc. This gives you a ton of flexibility in regards of the tech stack that you want on that server.</p>
+<p>There are many more things Dokku can do, like 0-downtime deployment, process scaling, database backups, Docker file/image deployments, etc., but let's cut the chit-chat and see this thing in action.</p>
+<p><img alt="Spare me the chit-chat" src="/images/2019/kung-fu-panda-chit-chat.gif" title="Spare me the chit-chat"></p>
+<p>First we want to create a new droplet using the <code>One-click apps</code> and choosing <code>Dokku on 18.04</code>, or <a href="https://cloud.digitalocean.com/droplets/new?size=s-1vcpu-1gb&amp;appId=48823330&amp;image=dokku-18-04&amp;refcode=be156fd97c45">click this shortcut</a> to autocomplete most of the options you need. <strong>NOTE</strong>: while the smallest 1GB instance should be enough to get you started, I recommend going with the at least a 2GB droplet later on.</p>
+<p>After the droplet creation, head over to the DNS management of the domain you want to use and add a <code>A</code> DNS record to point a (sub)domain to your new droplet IP address (ex. <code>dokku.yourdomain.com.  IN  A  123.45.67.89</code>). Access the domain in a browser and you should be presented with the initial setup, as seen below:</p>
+<p><img alt="Dokku initial setup page" src="/images/2019/dokku-setup.png" title="Dokku initial setup page"></p>
+<p>Now that we finished provisioning the instance (make sure you pressed <code>Finish setup</code> in the last step), let's connect to the server and do some additional updates:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># On the Dokku host</span>
+<span class="c1"># update the dokku repo keys as they are outdated on the one-click apps</span>
+$ wget -qO - https://packagecloud.io/dokku/dokku/gpgkey <span class="p">|</span> sudo apt-key add -
+$ sudo apt-get update
+$ sudo apt-get upgrade
+<span class="c1"># do additional setup you might need (install fail2ban, configure ufw, etc.)</span>
+</code></pre></div>
+
+
+<p>As mentioned earlier, we can install plugins in order to enhance our glorious PaaS, so <a href="https://github.com/dokku/dokku-postgres">PostgreSQL</a> and <a href="https://github.com/dokku/dokku-letsencrypt">Let's Encrypt</a> Dokku plugins are usually a good start:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># On the Dokku host</span>
+$ sudo dokku plugin:install https://github.com/dokku/dokku-postgres.git
+$ sudo dokku plugin:install https://github.com/dokku/dokku-letsencrypt.git
+$ dokku plugin
+</code></pre></div>
+
+
+<p>In order to test our setup we need to create our first app where we will deploy our project and a database for the app to use:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># On the Dokku host</span>
+$ dokku apps:create helloworld
+<span class="c1"># creating the database container</span>
+$ dokku postgres:create helloworld-db
+<span class="c1"># link the database to the app</span>
+$ dokku postgres:link helloworld-db helloworld
+<span class="c1"># check the postgres plugin set the app environment config values for the database connection</span>
+$ dokku config helloworld
+<span class="c1"># check that the app subdomain vhost was created and assigned to the app</span>
+$ dokku domains:report
+</code></pre></div>
+
+
+<p>On your local machine create a project directory and install Django in a virtual environment, then:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># On your local machine</span>
+<span class="c1"># this will create a new Django project based on a Heroku open-source template</span>
+$ django-admin startproject --template<span class="o">=</span>https://github.com/heroku/heroku-django-template/archive/master.zip --name<span class="o">=</span>Procfile helloworld
+$ git init
+$ git add -A
+$ git commit -m <span class="s2">&quot;Initial commit&quot;</span>
+</code></pre></div>
+
+
+<p>In order to deploy the above project we have to add a git remote pointing to the Dokku instance:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># On your local machine</span>
+<span class="c1"># the user must be `dokku` otherwise it won&#39;t work. Also, the string after `:` must be the name of the Dokku app created earlier</span>
+$ git remote add dokku dokku@dokku.yourdomain.com:helloworld
+<span class="c1"># deploy the app</span>
+$ git push dokku master
+</code></pre></div>
+
+
+<p>You will be able to witness all the deployment steps printed on the console, in the style of a Heroku deployment. If the deployment finished successfully, it will also show you the URLs where you can access the app you just deployed. In the above case it should be <code>http://helloworld.dokku.yourdomain.com/</code>.</p>
+<p>As a final step, we can get the project to be served over HTTPS using a <a href="https://letsencrypt.org/">Let's Encrypt</a> certificate:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># On the Dokku host</span>
+<span class="c1"># we set the email where to get notifications from the certificate authority</span>
+$ dokku config:set --global <span class="nv">DOKKU_LETSENCRYPT_EMAIL</span><span class="o">=</span>your@email.tld
+<span class="c1"># we get issued a certificate with one command</span>
+$ dokku letsencrypt helloworld
+<span class="c1"># and we make sure it gets renewed automatically</span>
+$ dokku letsencrypt:cron-job --add
+</code></pre></div>
+
+
+<p>You should be able to access the project at <code>https://helloworld.dokku.yourdomain.com/</code>. There are a few more things that you can do at this point, like setting up a redirect from <code>http</code> to <code>https</code> using <a href="https://github.com/dokku/dokku-redirect">dokku-redirect</a>, but I will stop here for now.</p>
+<p>If you want to find out more about Dokku please check out their great documentation over at <a href="http://dokku.viewdocs.io/dokku/">http://dokku.viewdocs.io/dokku/</a> and the quite extensive list of plugins they currently support <a href="http://dokku.viewdocs.io/dokku/community/plugins/">http://dokku.viewdocs.io/dokku/community/plugins/</a>.</p>
+      </div>
+      <div class="back-to-top">
+          <a href="#top">back to top</a>
+      </div>
+      <script src="https://utteranc.es/client.js"
+        repo="aramboi/blog"
+        issue-term="title"
+        label="comments"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+      </script>
+    </article>
+  </div>
+<!-- end article -->
+                <footer>
+                    <p>© <script>document.write(moment().format('YYYY'));</script> Angel Ramboi</p>
+                </footer>
+        </div>
+</body>
+</html>

@@ -1,6 +1,6 @@
 Title: Install Firefox 4 beta with Adobe Flash Player on Ubuntu 64bit
 Date: 2011-01-23
-Category: guides
+Category: articles
 Tags: firefox, ubuntu
 Description: Hint - you won't find it in the normal release channels.
 

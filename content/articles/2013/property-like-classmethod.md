@@ -1,6 +1,6 @@
 Title: Make a python object property behave like a classmethod
 Date: 2013-07-11
-Category: code
+Category: articles
 Tags: python
 Description: Using @property is nice and peachy when you use the instance of the class, but what if you need to get that property without instantiating the class.
 

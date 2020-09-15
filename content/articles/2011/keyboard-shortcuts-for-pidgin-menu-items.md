@@ -1,6 +1,6 @@
 Title: Enable keyboard shortcuts for Pidgin menu items
 Date: 2011-01-23
-Category: random
+Category: articles
 Tags: pidgin, ubuntu, windows
 Description: Crouching config, hidden settings.
 

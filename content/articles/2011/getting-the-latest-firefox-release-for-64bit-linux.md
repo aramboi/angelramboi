@@ -1,6 +1,6 @@
 Title: Get the latest Firefox 64bit for Linux
 Date: 2011-06-09
-Category: guides
+Category: articles
 Tags: firefox, linux
 Description: With working Flash Player? Please, tell me more.
 

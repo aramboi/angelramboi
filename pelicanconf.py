@@ -10,7 +10,7 @@ FEED_DOMAIN = SITEURL
 
 TIMEZONE = 'Europe/Madrid'
 DEFAULT_LANG = 'en'
-DEFAULT_PAGINATION = 15
+DEFAULT_PAGINATION = 10
 PAGINATION_PATTERNS = (
     (1, '{url}', '{save_as}'),
     (2, '{base_name}/page/{number}/', '{base_name}/page/{number}/index.html'),

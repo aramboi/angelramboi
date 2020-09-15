@@ -1,6 +1,6 @@
 Title: Set up different profiles for Firefox 3.6 and 4 beta on Windows
 Date: 2010-11-16
-Category: guides
+Category: articles
 Tags: firefox, windows
 Description: This is one of those cases when I miss a sane CLI in Windows.
 

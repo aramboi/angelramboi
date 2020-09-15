@@ -1,8 +1,8 @@
 Title: Install Ubuntu side by side with Windows 10 on an Alienware 13"
 Date: 2015-11-10
-Category: guides
+Category: articles
 Slug: install-ubuntu-on-alienware-13
-Tags: ubuntu, alienware
+Tags: ubuntu, windows
 Description: The Alienware 13 is an awesome gaming rig, so of course the Linux the support is ... meh!
 
 The Alienware 13 R2 (2015) laptop is probably the best compact gaming rig out there, so as you'd expect the Linux the support is underwhelming, to say the least. This setup assumes we want to keep the Windows 10 install and have a dual-boot system.

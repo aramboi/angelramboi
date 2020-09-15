@@ -1,6 +1,6 @@
 Title: Youtube not working in Firefox 3.6
 Date: 2010-11-08
-Category: random
+Category: articles
 Tags: firefox, youtube
 Description: DOM storage disabled? No cookies for you then.
 
