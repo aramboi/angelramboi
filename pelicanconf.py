@@ -61,6 +61,11 @@ MENUITEMS = [
     # ('about', '/pages/about.html'),
 ]
 
+STATIC_PATHS = ['images', 'extra/CNAME']
+EXTRA_PATH_METADATA = {
+    'extra/CNAME': {'path': 'CNAME'}
+}
+
 PLUGIN_PATHS = ['plugins', ]
 PLUGINS = [
     'sitemap',
