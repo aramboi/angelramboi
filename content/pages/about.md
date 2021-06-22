@@ -1,9 +1,9 @@
 Title: About me
 Slug: about
 
-I'm a seasoned software engineer with 15+ years experience developing web apps, services, various APIs and workplace automation.
+I'm a seasoned software engineer with 15 years experience designing and developing web apps and APIs in the context of service oriented architectures, test and deployment automation, CI/CD and data pipelines, and more.
 
-My current tech stack includes (but is not limited to) Python, Django, Docker, Git, Ansible, and more. I can also handle JavaScript, HTML and CSS pretty well, and in my free time I like to explore interesting projects like Rust or Elixir.
+My current stack includes (but is not limited to) Python, Docker, Git, Ansible and (virtual) whiteboards. In my free time I like to explore interesting projects like Rust or Go.
 
 Companies I've worked with in the past include [Activision-Blizzard](https://www.activisionblizzard.com/) and [PBS](https://www.pbs.org/).
 
